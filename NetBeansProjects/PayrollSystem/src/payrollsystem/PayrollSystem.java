@@ -49,7 +49,7 @@ public class PayrollSystem {
 	      new String[]{"Messages","Imid","INTEGER not NULL AUTO_INCREMENT",
                            "empid","INTEGER",
 			   "message", "MEDIUMTEXT", "postedby", "VARCHAR(255)",
-			   "dateposted", "DATE", "numviews", "SMALLINT", 
+			   "dateposted", "DATE", "numviews", "INTEGER", 
 			   "active", "BOOLEAN"}, 
               new String[]{"Locks","lockid", "INTEGER not NULL AUTO_INCREMENT", 
                            "empid", "INTEGER", 
