@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int numQ = sc.nextInt();
+        while(sc.hasNextInt()){
+            int nT = sc.nextInt();
+            int routes = 1;
+            while (nT > 1){
+                routes *= sc.nextInt();
+                routes = routes%1234567;
+                nT--;
+            }
+            System.out.println(routes);
+            
+        }
+    }
+}

@@ -1,0 +1,33 @@
+//using this relationship nC0+nC1+⋯+nCn=2n  in combinatorics
+// this differs from nP0 + nP1 +...+nPn ~ n!e^1 (convergence by power series relationship)
+// where com
+
+import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class Solution {
+    public BigInteger SumnCx(BigInteger n) {
+       BigInteger two = new BigInteger("2");
+       BigInteger bmodulo = new BigInteger("100000");
+       return two.modPow(n, bmodulo);
+    }
+    
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        Solution a = new Solution();
+        long numQ = sc.nextLong();
+        BigInteger one = new BigInteger("1");
+        while(sc.hasNextBigInteger()){
+                
+             
+             BigInteger N = sc.nextBigInteger();
+             
+
+             BigInteger g =  a.SumnCx(N);
+             g = g.subtract(one);
+             System.out.println(g);
+        }
+    }
+}

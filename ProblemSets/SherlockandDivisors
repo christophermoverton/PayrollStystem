@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */  
+        Scanner sc = new Scanner(System.in);
+        int numQ = sc.nextInt();
+        while (sc.hasNextBigInteger()){
+            BigInteger V = sc.nextBigInteger();
+            if(V.mod(new BigInteger("2")).equals(new BigInteger("0"))){
+                BigInteger K = V;
+                int count = 1;
+                boolean t1 = !K.divide(new BigInteger("2")).equals(new BigInteger("1"));
+                boolean t2 = !K.mod(new BigInteger("2")).equals(new BigInteger("0"));
+                while(t1 || t2){
+                    K = K.divide(new BigInteger("2"));
+                    count += 1;
+                    t1 = !K.divide(new BigInteger("2")).equals(new BigInteger("1"));
+                    t2 = !K.mod(new BigInteger("2")).equals(new BigInteger("0"));
+                }
+                System.out.println(count);
+            }
+            else{
+                System.out.println(0);
+            }
+        }
+    }
+}

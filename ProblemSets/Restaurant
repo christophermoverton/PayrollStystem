@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public int gcd(int p, int q) {
+        if (q == 0) return p;
+        else return gcd(q, p % q);
+    }
+    
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Solution solution = new Solution();
+        Scanner sc = new Scanner(System.in);
+        int numQ = sc.nextInt();
+        while(sc.hasNextInt()){
+            int t1 = sc.nextInt();
+            int t2 = sc.nextInt();
+            int t1t2g = solution.gcd(t1,t2);
+            int d1 = t1/t1t2g;
+            int d2 = t2/t1t2g;
+            System.out.println(d1*d2);
+        }
+    }
+}

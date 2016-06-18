@@ -1,0 +1,69 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.text.DecimalFormat;
+
+public class Solution {
+    public double[] getV(Solution a, int scale, double S){
+        double v = 1/Math.pow(2.0d,.5d);
+        //v = a.trunc(scale, v);
+        //S = a.trunc(scale, S);
+        return new double[] {v*S, v*S}; 
+    }
+    public float[] position(float[] V, float[] P0, float t){
+        float X0 = P0[0];
+        float Y0 = P0[1];
+        float Vx = V[0];
+        float Vy = V[1];
+        return new float[]{X0 + Vx*t, Y0 + Vy*t};
+    }
+    public double trunc(int scale, double val){
+        Double truncatedDouble = new BigDecimal(val).setScale(scale,
+                                                              BigDecimal.ROUND_HALF_UP).doubleValue();
+        return truncatedDouble;
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        DecimalFormat df = new DecimalFormat("#");
+        df.setMaximumFractionDigits(8);
+        Solution a = new Solution();
+        Scanner sc = new Scanner(System.in);
+        double L = sc.nextDouble();
+        String Ls = Double.toString(L);
+        
+        int scale = Ls.length();
+        //L = a.trunc(scale, L);
+        double S1 = sc.nextDouble();
+        double S2 = sc.nextDouble();
+        //S1 = a.trunc(scale, S1);
+        //S2 = a.trunc(scale, S2);
+        boolean firstgreater = S1 > S2;
+        double[] V1 = a.getV(a, scale, S1);
+        double[] V2 = a.getV(a, scale, S2);
+        double NQ = sc.nextDouble();
+        //NQ = a.trunc(scale, NQ);
+        while(sc.hasNextDouble()){
+            double q = sc.nextDouble();
+            //q = a.trunc(scale, q);
+            double[] P01 = {0.0f,0.0f};
+            double[] P02 = {0.0f,0.0f};
+            //float[] P1 = a.position(V1,P01, t);
+            //float[] P2 = a.position(V2,P02, t);
+            double ql = (double)Math.pow(q,.5d);
+            //ql = a.trunc(scale, ql);
+            if (firstgreater){
+                double t = (ql - L)*Math.sqrt(2.0d)/(S2-S1);
+                //t = a.trunc(scale, t);
+                System.out.println(df.format(t));
+            }
+            else{
+                double t = (ql - L)*Math.sqrt(2.0d)/(S1-S2);
+                //t = a.trunc(scale, t);
+                System.out.println(df.format(t));
+            }
+        }
+    }
+}

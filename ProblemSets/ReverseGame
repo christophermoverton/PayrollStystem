@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int numQ = sc.nextInt();
+        while(sc.hasNextInt()){
+            int N = sc.nextInt();
+            int K = sc.nextInt();
+            int n = 0;
+            int k = N-1;
+            int c = 0;
+            ArrayList<Integer> a = new ArrayList<Integer>();
+            while(n!= k){
+                if (c%2 == 0){
+                    a.add(k);
+                    k--;
+                }
+                else{
+                    a.add(n);
+                    n++;
+                }
+                c++;
+            }
+            a.add(k);
+            //System.out.println(a);
+            System.out.println(a.indexOf(K));
+        }
+    }
+}

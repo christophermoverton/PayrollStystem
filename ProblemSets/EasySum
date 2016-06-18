@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int numQ = sc.nextInt();
+        while (sc.hasNextInt()){
+            BigInteger N = sc.nextBigInteger();
+            BigInteger m = sc.nextBigInteger();
+            if (N.mod(m).equals(new BigInteger("0"))){
+                //System.out.println("hit");
+                BigInteger div = N.divide(m);
+                BigInteger m1 = m.subtract(new BigInteger("1"));
+                BigInteger sum = m.multiply(m1).divide(new BigInteger("2"));
+                System.out.println(sum.multiply(div));
+            }
+            else{
+                BigInteger div = N.divide(m);
+                //System.out.println(div);
+                BigInteger m1 = m.subtract(new BigInteger("1"));
+                BigInteger sum = m.multiply(m1).divide(new BigInteger("2"));
+                sum = sum.multiply(div);
+                //System.out.println(sum);
+                BigInteger modm = N.mod(m);
+                //System.out.println(modm);
+                BigInteger modm1 = modm.add(new BigInteger("1"));
+                
+                BigInteger sum2 = (modm.multiply(modm1)).divide(new BigInteger("2"));
+                //System.out.println(sum2);
+                sum = sum.add(sum2);
+                System.out.println(sum);
+            }
+        }
+        
+    }
+}

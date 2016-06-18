@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNextInt()){
+            int r = sc.nextInt();
+            int c = sc.nextInt();
+            if (r%2 == 1){
+                int k = r/2;
+                //System.out.println(k);
+                int j = 2*(c-1) + 10*k;
+                System.out.println(j);
+            }
+            else{
+                int k = (r-1)/2;
+                //System.out.println(k);
+                int j = 2*(c-1) + 1 + 10*k;
+                System.out.println(j);
+            }
+        }
+    }
+}

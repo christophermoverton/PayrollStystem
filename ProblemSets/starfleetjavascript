@@ -1,0 +1,112 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.util.Map;
+import java.util.TreeMap;
+
+   class Key {
+
+       private final int x;
+       private final int y;
+
+       public Key(int x, int y) {
+           this.x = x;
+           this.y = y;
+       }
+
+       @Override
+       public boolean equals(Object o) {
+           if (this == o) return true;
+           if (!(o instanceof Key)) return false;
+           Key key = (Key) o;
+           return x == key.x && y == key.y;
+       }
+
+       @Override
+       public int hashCode() {
+           int result = x;
+           result = 31 * result + y;
+           return result;
+       }
+
+   }
+public class Solution {
+
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int c = 0;
+        int p = 0;
+        ArrayList<ArrayList<Integer>> ins = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> row = new ArrayList<Integer>();
+        while(sc.hasNextInt()){       
+            int i = sc.nextInt();
+            if (c == 3){
+                c = 0;
+            }
+            if (c == 0){
+                if (p != 0){
+                  ins.add(row);
+                  row = new ArrayList<Integer>();
+                }
+                else{
+                    p = 1;
+                }
+            }
+            row.add(i);
+            c += 1;
+
+        }
+        ins.add(row);
+        int numN = ins.get(0).get(0);
+        int numQ = ins.get(0).get(1);
+        int V = ins.get(0).get(2);
+        int itQstart = numN+1;
+        HashMap<Key, Integer> YUYDmF = new HashMap<Key,Integer>();
+        TreeMap<Integer,Integer> FYf = new TreeMap<Integer,Integer>();
+        for(int j = 1; j < itQstart; j++){
+            Fyf.put(ins.get(j).get(1), ins.get(j).get(2));
+        }
+        for(int j = itQstart; j < ins.size(); j++){
+            int YU = ins.get(j).get(0);
+            int YD = ins.get(j).get(1);
+            int T = ins.get(j).get(2);
+            
+            HashMap<Integer, Integer> FinYUYD = new HashMap<Integer,Integer>();
+            int maxCount = 0;
+            if (YUYDmF.containsKey(new Key(YU,YD))){
+              maxCount = YUYDmF.get(new Key(YU,YD));
+              System.out.println(maxCount);
+            }
+            else{
+	      int maxB = -9e10;
+              int minB = 9e10;
+              for(int k = 1; k < numN+1;k++){
+                  int YF = ins.get(k).get(1);
+                  int FF = ins.get(k).get(2);
+                  if ((YD <= YF)  && (YF <= YU)){
+                      if (FinYUYD.containsKey(FF)){
+                          int popC = FinYUYD.get(FF);
+                          FinYUYD.put(FF, popC+1);
+                          if (popC+1 > maxCount){
+                              maxCount = popC+1;
+                          }
+                      }
+                      else{
+                          FinYUYD.put(FF, 1);
+                          if (1 > maxCount){
+                              maxCount = 1;
+                          }
+                      }
+                  }
+              }
+              YUYDmF.put(new Key(YU,YD),maxCount);
+              System.out.println(maxCount);
+            }
+        }
+        
+    }
+}

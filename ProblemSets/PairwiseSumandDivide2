@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class Solution {
+    public BigInteger fun(BigInteger i1, BigInteger i2){
+        return (i1.add(i2)).divide(i1.multiply(i2));
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int Q = sc.nextInt();
+        BigInteger one = new BigInteger("1");
+        BigInteger zero = new BigInteger("0");
+        BigInteger two = new BigInteger("2");
+        while(sc.hasNextInt()){
+            BigInteger asize = sc.nextBigInteger().subtract(one);
+            BigInteger[] arr = new BigInteger[asize];
+            BigInteger sum = zero;
+            BigInteger sum2 = zero;
+           
+            BigInteger prev = zero;
+            for (int i= 0; i < asize.intValue()+1; i++){
+                BigInteger v = sc.nextBigInteger();
+		        sum = sum.add(one.divide(v));
+                if (i != 0){
+                    arr[i-1] = fun(prev,v);
+                    if (arr[i-1] == one){
+                        sum.add(one);
+                        sum2.subtract(BigInteger.valueOf(i))
+                    }
+                    else if(arr[i-1] == ){
+                        
+                    }
+                }
+                
+                prev = v;
+            }
+            sum = sum.multiply(asize);
+            System.out.println(sum);
+        }
+    }
+}

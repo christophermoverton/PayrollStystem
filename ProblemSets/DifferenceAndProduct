@@ -1,0 +1,162 @@
+import java.io.*;
+import java.util.*;
+import java.math.*;
+import java.util.HashSet;
+
+     class Key {
+
+       private final long x;
+       private final long y;
+
+       public Key(long x, long y) {
+           this.x = x;
+           this.y = y;
+       }
+
+       @Override
+       public boolean equals(Object o) {
+           if (this == o) return true;
+           if (!(o instanceof Key)) return false;
+           Key key = (Key) o;
+           return x == key.x && y == key.y;
+       }
+       /*
+       @Override
+       public long hashCode() {
+           long result = x;
+           result = 31 * result + y;
+           return result;
+       }
+       */
+
+    }
+
+public class Solution {
+
+    public void factorization(long n, ArrayList<Long> out){
+                // command-line argument
+        
+
+        //System.out.print("The prime factorization of " + n + " is: ");
+
+        // for each potential factor i
+        for (long i = 2; i*i <= n; i++) {
+
+            // if i is a factor of N, repeatedly divide it out
+            while (n % i == 0) {
+                //System.out.print(i + " "); 
+                out.add(i);
+                n = n / i;
+            }
+        }
+        if (out.size() == 0){
+            
+            long one = 1;
+            out.add(n);
+            out.add(one);
+        }
+        //System.out.println(out);
+    }   
+    
+    public boolean checkDiff(long p, long q, long v){
+         //System.out.println("Diff: "+Math.abs(p-q) + ", " + v);
+         return (Math.abs(p-q)==v);
+    }
+    
+    public void prodFind(HashSet<Integer> keys, ArrayList<Long> ins, 
+                         ArrayList<Long> out){
+        HashSet<Integer> cKeys = new HashSet<Integer>();
+        for (int i = 0; i < ins.size(); i++){
+           cKeys.add(i);
+        }
+        cKeys.removeAll(keys);
+        long prod1 = 1;
+        long prod2 = 1;
+        for (int key : keys){
+            prod1 *= ins.get(key);
+        }
+        for (int key : cKeys){
+            prod2 *= ins.get(key);
+        }
+        out.add(prod1);
+        out.add(prod2);
+    }
+
+    public void comb(int i, int size, HashSet<Integer> iset, ArrayList<HashSet<Integer>> outs){
+        if (i < size-1){
+           HashSet<Integer> iset1 = new HashSet<Integer>(iset);
+           iset1.add(i);
+           comb(i+1, size, iset1, outs);
+           HashSet<Integer> iset2 = new HashSet<Integer>(iset);
+	       comb(i+1, size, iset2, outs);
+        }
+        else{
+           HashSet<Integer> iset1 = new HashSet<Integer>(iset);
+           iset1.add(i);
+           outs.add(iset1);
+           outs.add(iset);
+        }
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        Solution a = new Solution();
+        int Q = sc.nextInt();
+       
+        while (sc.hasNextLong()){
+            
+            long D = sc.nextLong();
+            long P = sc.nextLong();
+            if (D < 0){
+               System.out.println(0);
+               continue;
+            }
+            
+            HashSet<ArrayList<Long>> opair = new HashSet<ArrayList<Long>>();
+            ArrayList<Long> factors = new ArrayList<Long>();
+            
+            a.factorization(P, factors);
+            //System.out.println(factors);
+            //HashSet<Integer> keys = new HashSet<Integer>();
+            ArrayList<HashSet<Integer>> keyslist = new ArrayList<HashSet<Integer>>();
+            HashSet<Integer> iset = new HashSet<Integer>();
+            a.comb(0, factors.size(), iset, keyslist);
+            //System.out.println(keyslist);
+            int count = 0;
+            for (HashSet<Integer> keys : keyslist){
+                ArrayList<Long> out = new ArrayList<Long>();
+                a.prodFind(keys, factors, out);
+                long r = out.get(0);
+                long s = out.get(1);
+                //System.out.println(out);
+                if(a.checkDiff(r, s, D)){
+                   //long c = Math.min(r,s);
+                   //long d = Math.max(r,s);
+                   //System.out.println("New pair: "+r+" , "+s);
+                   ArrayList<Long> v1 = new ArrayList<Long>();
+                   v1.add(r);
+                   v1.add(s);
+                   ArrayList<Long> v2 = new ArrayList<Long>();
+                   v2.add(-r);
+                   v2.add(-s);
+                   opair.add(v1);
+                   opair.add(v2);
+                   //System.out.println(opair);
+                   //opair.add(new Key(r,s));
+                   //opair.add(new Key(-r,-s));
+                   /*
+                   if (! opair.contains(new Key(r,s))){
+                      opair.add(new Key(r,s));
+                      opair.add(new Key(-1*r, -1*s));
+                      count++;
+                      count++;
+                   }
+                   */
+                }
+            }
+            //System.out.println(opair);
+            System.out.println(opair.size());
+        }
+    }
+}

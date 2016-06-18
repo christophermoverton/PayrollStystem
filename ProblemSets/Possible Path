@@ -1,0 +1,92 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // recursive implementation
+    public static int gcd(int p, int q) {
+        if (q == 0) return p;
+        else return gcd(q, p % q);
+    }
+    
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Solution solution = new Solution();
+        Scanner sc = new Scanner(System.in);
+        int numQ = sc.nextInt();
+        int[] row = new int[4];
+        int c = 0;
+        while(sc.hasNextInt()){
+            if( c%4 == 3){
+                int a = row[0];
+                int b = row[1];
+                int x = row[2];
+                int y = sc.nextInt();
+                if (y < x){
+                    int b1 = b;
+                    b = a;
+                    a = b1;
+                    int y1 = y;
+                    y = x;
+                    x = y1;
+                }
+                boolean checkX = false;
+                boolean checkY = false;
+                int a1 = 0;
+                if (a < x){
+                    int div = (x-a)/b;
+                    if (( a + (div*b))%x == 0){
+                        checkX = true;
+                        a1 = a + div*b;
+                    }
+                }
+                else{
+                    if(a == x){
+                        checkX = true;
+                        a1 = a;
+                    }
+                    else{
+                        int div = (a-x)/b;
+                        if((a-div*b)%x==0){
+                            checkX = true;
+                        }
+                        a1 = a - div*b;
+                    }
+                }
+                if (b < y){
+                    int div = (y-b)/a1;
+                    if ((b+div*a1)%y == 0){
+                        checkY = true;
+                    }
+                }
+                else{
+                    if(b == y){
+                       checkY = true; 
+                    }
+                    else{
+                        int div = (b-y)/a1;
+                        if((b-div*a1)%y == 0){
+                            checkY = true;
+                        }
+                    }
+                }
+                if (checkX && checkY){
+                    System.out.println("YES");
+                }
+                else{
+                    System.out.println(checkX);
+                    System.out.println(checkY);
+                    System.out.println("NO");
+                }
+                row = new int[4];
+            }
+            else{
+                row[c%4] = sc.nextInt();
+            }
+            c+=1;
+        }
+    }
+}

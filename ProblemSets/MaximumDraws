@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Solution a = new Solution();
+        Scanner sc = new Scanner(System.in);
+        int numQ = sc.nextInt();
+        while(sc.hasNextInt()){
+            int NPairs = sc.nextInt();
+            System.out.println(NPairs+1);
+        }
+    }
+}

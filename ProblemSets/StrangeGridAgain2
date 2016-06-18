@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+            
+            Scanner sc = new Scanner(System.in);
+  
+            while(sc.hasNextBigInteger()){
+           
+            BigInteger r = sc.nextBigInteger();
+            BigInteger c = sc.nextBigInteger();
+            BigInteger t1 = new BigInteger("1");
+            //System.out.println(r.mod(new BigInteger("2")).equals(t1));
+            if (r.mod(new BigInteger("2")).equals(new BigInteger("1"))){
+                BigInteger k = r.divide(new BigInteger("2"));
+                k = k.multiply(new BigInteger("10"));
+                //System.out.println(k);
+                BigInteger j = c.subtract(new BigInteger("1")).multiply(new BigInteger("2")).add(k);
+                //int j = 2*(c-1) + k;
+                //System.out.println(val);
+                System.out.println(j);
+            }
+            else{
+                BigInteger k = r.subtract(new BigInteger("1")).divide(new BigInteger("2"));//(r-1)/2;
+                k = k.multiply(new BigInteger("10"));
+                //System.out.println(k);
+                BigInteger j = c.subtract(new BigInteger("1")).multiply(new BigInteger("2")).add(new BigInteger("1")).add(k);
+                //int j = 2*(c-1) + 1 + 10*k;
+                //System.out.println(val);
+                System.out.println(j);
+            }
+            
+        }
+    }
+}

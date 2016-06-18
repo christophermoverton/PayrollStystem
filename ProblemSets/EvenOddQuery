@@ -1,0 +1,94 @@
+import java.io.*;
+import java.util.*;
+import java.math.*;
+import java.util.Map;
+
+class Key {
+
+       private final int x;
+       private final int y;
+
+       public Key(int x, int y) {
+           this.x = x;
+           this.y = y;
+       }
+
+       @Override
+       public boolean equals(Object o) {
+           if (this == o) return true;
+           if (!(o instanceof Key)) return false;
+           Key key = (Key) o;
+           return x == key.x && y == key.y;
+       }
+
+       @Override
+       public int hashCode() {
+           int result = x;
+           result = 31 * result + y;
+           return result;
+       }
+
+}
+
+public class Solution {
+    
+    public BigInteger find(int x, int y, ArrayList<Integer> A, HashMap<Key, BigInteger> Atables){
+        if(x>y) return new BigInteger("1");
+        BigInteger Ax = new BigInteger(""+(Integer) A.get(x));
+        BigInteger fi = find(x+1,y, A, Atables);
+        BigInteger maxint = new BigInteger("2147483647");
+        BigInteger ans = new BigInteger("1");
+        if (fi.min(maxint).equals(fi)){
+       	     int exp = fi.intValue();
+             ans = Ax.pow(exp);
+        }
+        else{
+             BigInteger i = new BigInteger("1");
+             while(i.min(new BigInteger("10000000")).equals(i)){
+ 		         if(fi.divide(i).min(maxint).equals(fi)){
+		           int exp = fi.divide(i).intValue(); 
+                   ans = Ax.pow(exp);
+		           ans = ans.pow(i.intValue());
+		           break;                   
+		         }
+             	 i.multiply(new BigInteger("10"));
+             }
+        }
+        if (!Atables.containsKey(new Key(x,y))){
+		Atables.put(new Key(x,y),ans);
+        } 
+        return ans;
+    }
+    
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        HashMap<Key, BigInteger> Atables = new HashMap<Key,BigInteger>();
+        Scanner sc = new Scanner(System.in);
+        Solution a = new Solution();
+        ArrayList<Integer> A = new ArrayList<Integer>();
+        int Asize = sc.nextInt();
+        int Asize1 = Asize;
+        for (int i = 0; i < Asize1; i++){
+            A.add(sc.nextInt());
+        }
+        int nQ = sc.nextInt();
+        while(sc.hasNextInt()){
+            int x = sc.nextInt()-1;
+            int y = sc.nextInt()-1;
+            BigInteger fi = new BigInteger("0");
+            if (Atables.containsKey(new Key(x,y))){
+		fi = Atables.get(new Key(x,y));
+            }
+            else{
+            	fi = a.find(x,y,A, Atables);
+            }
+
+            if(fi.mod(new BigInteger("2")).equals(new BigInteger("0"))){
+                System.out.println("Even");
+            }
+            else{
+                System.out.println("Odd");
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+
+public class Solution {
+       public int[] symmpoint(int[] Points){
+             int[] rPoint = new int[2];
+             //compute - (P - Q) vector
+             int Px = Points[0];
+             int Py = Points[1];
+             int Qx = Points[2];
+             int Qy = Points[3];
+             int Vx = -1*(Px - Qx);
+             int Vy = -1*(Py - Qy);
+             //add to Q
+             Vx += Qx;
+             Vy += Qy;
+             rPoint[0] = Vx;
+             rPoint[1] = Vy;
+             return rPoint;
+    
+        }
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution.
+        
+        */
+        Solution a = new Solution();
+        Scanner sc = new Scanner(System.in);
+        int numQ = sc.nextInt();
+        int c = 0;
+        int[] Points = new int[4];
+        while(sc.hasNextInt()){
+            if (c % 4 == 3){
+                int i = sc.nextInt();
+                Points[3] = i;
+                //System.out.println(Points);
+                int[] rpoints = a.symmpoint(Points);
+                System.out.println(rpoints[0] + " " + rpoints[1]);
+                Points = new int[4];
+            }
+            else{
+                int i = sc.nextInt();
+                Points[c%4] = i;
+            }
+            c+=1;
+        }
+    }
+}

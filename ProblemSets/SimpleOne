@@ -1,0 +1,210 @@
+import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class Solution {
+    BigInteger two = new BigInteger("2");
+    BigInteger zero = new BigInteger("0");
+    BigInteger one = new BigInteger("1");
+    BigInteger onen = new BigInteger("-1");
+    BigInteger mP = new BigInteger("1000000007");
+    public void tandou(BigInteger tp, BigInteger tq, BigInteger n, 
+                       BigInteger[] out){
+        /*
+        BigInteger[] rvals = new BigInteger[2];
+        BigInteger a = talpha.multiply(new BigInteger("2"));
+        BigInteger b = new BigInteger("1").subtract(talpha.multiply(talpha));
+        rvals[0] = a;
+        rvals[1] = b;
+        return rvals;*/
+        BigInteger two = new BigInteger("2");
+        BigInteger zero = new BigInteger("0");
+        BigInteger one = new BigInteger("1");
+        if ((n.mod(two)).equals(zero)){
+           BigInteger divr = n.divide(two);
+           if (!divr.equals(one)){
+              BigInteger[] in = new BigInteger[2];
+              tandou(tp,tq,divr,in);
+              /*             out[0] = 2*in[0]*in[1];
+             out[1] = (in[1]*in[1]-in[0]*in[0]);*/
+              out[0] = (in[0].multiply(in[1])).multiply(two);
+              out[1] = (in[1].multiply(in[1])).subtract(in[0].multiply(in[0]));
+           }
+           else{
+              /*out[0] = 2*tp*tq;
+             out[1] = (tq*tq-tp*tp);
+              */
+              out[0] = two.multiply(tp.multiply(tq));
+              out[1] = (tq.multiply(tq)).subtract(tp.multiply(tp));
+           }
+        }
+        else{
+/*
+           long rn = n-1;
+           long[] in = new long[2];
+           tandou(tp, tq, rn, in);
+           /*
+           out[0] = tp/tq + in[0]/in[1];
+           out[1] = 1-(tp/tq)*(in[0]/in[1]);
+           out[0] = tp*in[1]+in[0]*tq;
+           out[1] = tq*in[1]*(1-tp/tq*in[0]/in[1]);
+           out[1] = tq*in[1]-tp*in[0];
+           
+           out[0] = tp*in[1]+in[0]*tq;
+           out[1] = tq*in[1]-tp*in[0];
+*/
+           BigInteger rn = n.subtract(one);
+           BigInteger[] in = new BigInteger[2];
+           tandou(tp,tq,rn,in);
+           out[0] = (tp.multiply(in[1])).add(in[0].multiply(tq));
+           out[1] = (tq.multiply(in[1])).subtract(tp.multiply(in[0]));
+        }
+    }
+    
+    public void tandou(long tp, long tq, long n, long[] out){
+        //long[] rvals = new long[2];
+        if (n%2 == 0){
+           long divr = n/2;
+           if (divr != 1){
+             long[] in = new long[2];
+             tandou(tp,tq, divr, in);
+             /*
+             tan(a + b) = [tan(a) + tan(b)] / [1 - tan(a)tan(b)], tan(a - b) = [tan(a) - tan(b)] / [1 + tan(a)tan(b)]  
+             sin(α)cos(β) + cos(α)sin(β) 
+             cos(α)cos(β) – sin(α)sin(β)
+             */
+             out[0] = 2*in[0]*in[1];
+             out[1] = (in[1]*in[1]-in[0]*in[0]);
+           }
+           else{
+             out[0] = 2*tp*tq;
+             out[1] = (tq*tq-tp*tp);
+           }
+        }
+        else{
+           long rn = n-1;
+           long[] in = new long[2];
+           tandou(tp, tq, rn, in);
+           /*
+           out[0] = tp/tq + in[0]/in[1];
+           out[1] = 1-(tp/tq)*(in[0]/in[1]);
+           out[0] = tp*in[1]+in[0]*tq;
+           out[1] = tq*in[1]*(1-tp/tq*in[0]/in[1]);
+           out[1] = tq*in[1]-tp*in[0];
+           2 = 7*x mod 10
+           2 - 7*x = m*10 -> 2-m*10 = 7x -> 
+           */
+           out[0] = tp*in[1]+in[0]*tq;
+           out[1] = tq*in[1]-tp*in[0];
+        }
+    }
+    
+    public BigInteger gcd(BigInteger p, BigInteger q){
+       if(!p.equals(zero)){return p;}
+       else{return gcd(q,p.mod(q));}
+    }
+
+    public void gcd2(BigInteger p, BigInteger q, ArrayList<ArrayList<BigInteger>> cset){
+       //cset = new ArrayList<ArrayList<BigInteger>>();
+       BigInteger p1 = p;
+       BigInteger q1 = q;
+       BigInteger two = new BigInteger("2");
+       BigInteger zero = new BigInteger("0");
+       BigInteger one = new BigInteger("1");
+       while(!q1.equals(zero)){
+          ArrayList<BigInteger> a = new ArrayList<BigInteger>();
+          //System.out.println("hit");
+          a.add(p1);
+          a.add(p1.divide(q1));
+          a.add(q1);
+          a.add(p1.mod(q1));
+          //System.out.println("hit2");
+          cset.add(a);
+          BigInteger q2 = q1;
+          q1 = p1.mod(q1);
+          //System.out.println(q1);
+          p1 = q2;
+       }
+       //System.out.println("finished!");
+    }
+
+    public ArrayList<BigInteger> revgcd(ArrayList<ArrayList<BigInteger>> cset){
+       ArrayList<ArrayList<BigInteger>> csetc = new ArrayList<ArrayList<BigInteger>>();
+       cset.addAll(csetc);
+       Collections.reverse(csetc);
+       int c = 0;
+       ArrayList<BigInteger> coeff = new ArrayList<BigInteger>();
+       if(cset.size()>1){coeff = csetc.get(1);}
+       ArrayList<BigInteger> solu = new ArrayList<BigInteger>();
+       solu.add(one); solu.add(coeff.get(0));solu.add(onen.multiply(coeff.get(1)));
+       solu.add(coeff.get(2));
+       for (ArrayList<BigInteger> coeff2 : cset){
+          if (c==0){ c++; continue;}
+          if (c==1){ c++; continue;}
+          ArrayList<BigInteger> a = new ArrayList<BigInteger>();
+          a.add(one); a.add(coeff2.get(0)); a.add(onen.multiply(coeff2.get(1)));
+          a.add(coeff2.get(2)); a.add(coeff2.get(3));
+          if(a.get(4).equals(solu.get(1))){
+             ArrayList<BigInteger> solu2 = new ArrayList<BigInteger>();
+             solu2.add(a.get(0).multiply(solu.get(0))); 
+             solu2.add(a.get(1)); solu2.add(a.get(2).multiply(solu.get(0)));
+             solu2.add(a.get(3)); solu2.add(solu.get(2)); solu2.add(solu.get(3));
+             solu = solu2;
+          }
+          else if (a.get(4).equals(solu.get(3))){
+             ArrayList<BigInteger> solu2 = new ArrayList<BigInteger>();
+             solu2.add(a.get(0).multiply(solu.get(2))); 
+             solu2.add(a.get(1)); solu2.add(a.get(2).multiply(solu.get(2)));
+             solu2.add(a.get(3)); solu2.add(solu.get(2)); solu2.add(solu.get(3));
+             solu = solu2;
+          }
+          if(solu.size() == 6){
+             if(solu.get(1).equals(solu.get(3))){
+               ArrayList<BigInteger> solu2 = new ArrayList<BigInteger>();
+               solu2.add(a.get(0).multiply(solu.get(2))); 
+               solu2.add(a.get(1)); solu2.add(a.get(2).multiply(solu.get(2)));
+               solu2.add(a.get(3)); solu2.add(solu.get(2)); solu2.add(solu.get(3)); 
+               solu = solu2;          
+             }
+             else if(solu.get(1).equals(solu.get(5))){
+               ArrayList<BigInteger> solu2 = new ArrayList<BigInteger>();
+               solu2.add(solu.get(0).add(solu.get(4))); solu2.add(solu.get(1));
+               solu2.add(solu.get(2)); solu2.add(solu.get(3));
+               solu = solu2;
+             }
+             else if(solu.get(3).equals(solu.get(5))){
+               ArrayList<BigInteger> solu2 = new ArrayList<BigInteger>();
+               solu2.add(solu.get(0));solu2.add(solu.get(1)); 
+               solu2.add(solu.get(2).add(solu.get(4)));
+               solu2.add(solu.get(3));
+               solu = solu2;
+             }
+          }
+          c++;
+       }
+       return solu;
+    }
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        Solution c = new Solution();
+        while(sc.hasNextBigInteger()){
+           BigInteger p = sc.nextBigInteger();
+           BigInteger q = sc.nextBigInteger();
+           BigInteger n = sc.nextBigInteger();
+           BigInteger[] out = new BigInteger[2];
+           c.tandou(p, q, n, out);
+           BigInteger a = out[0];
+           BigInteger b = out[1];
+           System.out.println(a);
+           System.out.println(b);
+           ArrayList<ArrayList<BigInteger>> cset = new ArrayList<ArrayList<BigInteger>>();
+           System.out.println(c.mP);
+           c.gcd2(b, c.mP, cset);
+           System.out.println(cset.get(0));
+           ArrayList<BigInteger> solu = c.revgcd(cset);
+           System.out.println(a.multiply(solu.get(0)));
+        }
+    }
+}

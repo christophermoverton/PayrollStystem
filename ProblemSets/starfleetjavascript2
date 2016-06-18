@@ -1,0 +1,183 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.SortedMap;
+//import java.io.File;
+/**
+ *
+ * @author strangequark
+ */
+   class Key {
+
+       private final int x;
+       private final int y;
+
+       public Key(int x, int y) {
+           this.x = x;
+           this.y = y;
+       }
+
+       @Override
+       public boolean equals(Object o) {
+           if (this == o) return true;
+           if (!(o instanceof Key)) return false;
+           Key key = (Key) o;
+           return x == key.x && y == key.y;
+       }
+
+       @Override
+       public int hashCode() {
+           int result = x;
+           result = 31 * result + y;
+           return result;
+       }
+
+   }
+public class Solution {
+
+    public static void main(String[] args) {
+       
+            //File file = new File("/home/strangequark/input07.txt");
+            Scanner sc = new Scanner(System.in);
+
+
+
+            int c = 0;
+            int p = 0;
+            ArrayList<ArrayList<Integer>> ins = new ArrayList<ArrayList<Integer>>();
+            ArrayList<Integer> row = new ArrayList<Integer>();
+            while(sc.hasNextInt()){       
+                int i = sc.nextInt();
+            
+                if (c % 3== 0){
+                    if (p != 0){
+                      ins.add(row);
+                      row = new ArrayList<Integer>();
+                    }
+                    else{
+                        p = 1;
+                    }
+                }
+                row.add(i);
+                c += 1;
+
+            }
+            ins.add(row);
+            int numN = ins.get(0).get(0);
+            int numQ = ins.get(0).get(1);
+            int V = ins.get(0).get(2);
+            int itQstart = numN+1;
+            HashMap<Key, Integer> YUYDmF = new HashMap<Key,Integer>();
+            // maps Y loc ID  ->  Hashmap<Fighter Freq ID, num fighters>
+            TreeMap<Integer,HashMap<Integer,Integer>> Fyf = new TreeMap<Integer,HashMap<Integer,Integer>>();
+            for(int j = 1; j < itQstart; j++){
+                int Fid = ins.get(j).get(1);
+                int FFid = ins.get(j).get(2);
+                if (Fyf.containsKey(Fid)){
+                    HashMap<Integer,Integer> FFs = Fyf.get(Fid);
+                    if (FFs.containsKey(FFid)){
+                       int numF = FFs.get(FFid);
+                       FFs.put(FFid, numF+1);
+                    }
+                    else{
+                       FFs.put(FFid, 1);
+                    }
+                    
+                }
+                else{
+                    HashMap<Integer,Integer> FFs = new HashMap<Integer,Integer>();
+                    FFs.put(FFid, 1);
+                    Fyf.put(Fid, FFs);
+                }
+                //Fyf.put(ins.get(j).get(1), ins.get(j).get(2));
+            }
+//            Map<Integer,Integer> Fyfa = new TreeMap<Integer,Integer>(Fyf);
+//            int cnt = 0;
+//            for (Map.Entry<Integer,Integer> entry: Fyfa.entrySet()){
+//                System.out.print(entry.getKey() + " ");
+//                if (cnt % 100 == 0){
+//                   System.out.println(" ");
+//                }
+//                cnt += 1;
+//            }
+            //System.out.println(Fyfa);
+
+            for(int j = itQstart; j < ins.size(); j++){
+                int YU = ins.get(j).get(0);
+                int YD = ins.get(j).get(1);
+                int T = ins.get(j).get(2);
+
+                HashMap<Integer, Integer> FinYUYD = new HashMap<Integer,Integer>();
+                int maxCount = 0;
+                int bcount = 0;
+
+                //System.out.println("Iterated set size: "+ bcount);
+                if (YUYDmF.containsKey(new Key(YU,YD))){
+                  maxCount = YUYDmF.get(new Key(YU,YD));
+                  System.out.println(maxCount);
+                }
+                else{
+                  int maxKey = Fyf.floorKey(YU);
+                  int minKey = Fyf.ceilingKey(YD);
+                  int nmaxKey = YU;
+                  int nminKey = YD;
+                  if (Fyf.lowerKey(minKey) != null){
+                    nminKey = Fyf.lowerKey(minKey);
+                  }
+                  if (Fyf.higherKey(maxKey) != null){
+                    nmaxKey = Fyf.higherKey(maxKey);  
+                  }
+//                  System.out.print(YU + " ");
+//                  System.out.println(YD + " ");              
+//                  System.out.print(minKey + " ");
+//                  System.out.println(maxKey + " ");
+
+                  
+                  if(minKey == maxKey){
+                      // FF = Fyf.get(minKey); 
+                      maxCount = 1;
+                  }
+                  else{
+                      NavigableMap<Integer,HashMap<Integer,Integer>> b = Fyf.subMap(minKey,true, maxKey, true);
+                      //System.out.println("Submap Size: " + b.size());
+                      for(Map.Entry<Integer, HashMap<Integer,Integer>> entry: b.entrySet()){
+                              HashMap<Integer,Integer> FF = entry.getValue();
+                              //System.out.print(entry.getKey()+" ");
+                              for (Map.Entry<Integer,Integer> entry2 : FF.entrySet()){
+                                  int FFid = entry2.getKey();
+                                  int Fnum = entry2.getValue();
+                                  if (FinYUYD.containsKey(FFid)){
+                                      int popC = FinYUYD.get(FFid);
+                                      FinYUYD.put(FFid, popC+Fnum);
+                                      if (popC+Fnum > maxCount){
+                                          maxCount = popC+Fnum;
+                                      }
+                                  }
+                                  else{
+                                      FinYUYD.put(FFid, Fnum);
+                                      if (Fnum > maxCount){
+                                          maxCount = Fnum;
+                                      }
+                                  }
+                              }
+
+                      }
+                  }
+
+                  YUYDmF.put(new Key(YU,YD),maxCount);
+                  //for (int k = nminKey+1;k < minKey+1;k++){
+                  //   for(int l = maxKey;l < nmaxKey;l++){
+                          //      YUYDmF.put(new Key(k,l), maxCount);  
+                  //   }
+                  //}
+                  System.out.println(maxCount);
+                }
+        }
+        
+
+    }
+}
