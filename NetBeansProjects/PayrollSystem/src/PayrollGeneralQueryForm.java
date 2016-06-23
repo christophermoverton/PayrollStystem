@@ -8,6 +8,7 @@
  *
  * @author strangequark
  */
+import payrollsystem.*;
 public class PayrollGeneralQueryForm extends javax.swing.JFrame {
 
     /**
@@ -40,6 +41,11 @@ public class PayrollGeneralQueryForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setText("Search");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton1MouseReleased(evt);
+            }
+        });
 
         jLabel1.setText("Enter Sql Query Below:");
 
@@ -80,6 +86,14 @@ public class PayrollGeneralQueryForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseReleased
+        // TODO add your handling code here:
+        System.out.println("Mouse button pressed!");
+        String text = jTextArea1.getText();
+        GeneralPayrollQuery gprq = new GeneralPayrollQuery(text);
+        jTextArea2.setText(gprq.runQuery());
+    }//GEN-LAST:event_jButton1MouseReleased
 
     /**
      * @param args the command line arguments
