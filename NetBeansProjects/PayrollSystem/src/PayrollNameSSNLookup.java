@@ -112,7 +112,7 @@ public class PayrollNameSSNLookup extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setText("Phone:");
+        jLabel10.setText("Home Phone:");
 
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,12 +144,11 @@ public class PayrollNameSSNLookup extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,7 +264,7 @@ public class PayrollNameSSNLookup extends javax.swing.JFrame {
     private void jButton1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseReleased
         // TODO add your handling code here:
         ArrayList<String[]> pQueries = new ArrayList<String[]>();
-        HashMap<String,String[]> pQsm = new Map<String,String[]>();
+        HashMap<String,String[]> pQsm = new HashMap<String,String[]>();
         String Qstring = "Select * From employee";
         boolean a1t = false;
         boolean ct = false;
@@ -314,18 +313,40 @@ public class PayrollNameSSNLookup extends javax.swing.JFrame {
         if (!jTextField4.getText().equals("")){
             String dob = jTextField4.getText();
             pQueries.add(new String[] {"i", dob});
-            pQsm.put("dob", new String[] {"s", dob});
+            pQsm.put("dob", new String[] {"i", dob});
             dbt = true;
-        }        
+        }  
+        if (!jTextField9.getText().equals("")){
+            String homephone = jTextField9.getText();
+            pQueries.add(new String[] {"i", homephone});
+            pQsm.put("dob", new String[] {"i", homephone});
+            dbt = true;
+        }
+        if (!jTextField10.getText().equals("")){
+            String email = jTextField10.getText();
+            pQueries.add(new String[] {"i", email});
+            pQsm.put("email", new String[] {"i", email});
+            dbt = true;
+        } 
+        boolean invalidaddr = false;
+        boolean noinput = false;
+        if (pQsm.isEmpty()){
+           JOptionPane.showMessageDialog(new JFrame(), "Need at least one entry at least!");
+           noinput = true;
+        }
         if (!(!a1t&&!ct&&!st&&!zt)){
             if(!(a1t&&ct&&st&&zt)){
                 JOptionPane.showMessageDialog(new JFrame(), "Address, City, State, and Zip need to be filled out!");
-                
+                invalidaddr = true;
             }
             else{
                 
             }
         }
+        if (!(invalidaddr || noinput)){
+            
+        }
+        
     }//GEN-LAST:event_jButton1MouseReleased
 
     /**
