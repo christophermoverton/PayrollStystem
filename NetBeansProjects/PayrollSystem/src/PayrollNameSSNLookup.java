@@ -265,41 +265,64 @@ public class PayrollNameSSNLookup extends javax.swing.JFrame {
     private void jButton1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseReleased
         // TODO add your handling code here:
         ArrayList<String[]> pQueries = new ArrayList<String[]>();
+        HashMap<String,String[]> pQsm = new Map<String,String[]>();
+        String Qstring = "Select * From employee";
         boolean a1t = false;
         boolean ct = false;
         boolean st = false;
         boolean zt = false;
+        boolean dbt = false;
         if (!jTextField1.getText().equals("")){
             String fname = jTextField1.getText();
             pQueries.add(new String[] {"s","firstname", "'%"+ fname + "%'"});
+            pQsm.put("firstname", new String[] {"s", "'%"+ fname + "%'"});
         }
         if (!jTextField2.getText().equals("")){
             String lname = jTextField2.getText();
             pQueries.add(new String[] {"s","lastname", "'%"+ lname + "%'"});
+            pQsm.put("lastname", new String[] {"s", "'%"+ lname + "%'"});
         }
         if (!jTextField3.getText().equals("")){
             String ssn = jTextField3.getText();
             pQueries.add(new String[] {"i","ssn",ssn});
+            pQsm.put("ssn", new String[] {"s", ssn});
         }
         if (!jTextField5.getText().equals("")){
             String address1 = jTextField5.getText();
             pQueries.add(new String[] {"s","address1", "'%"+ address1 + "%'"});
+            pQsm.put("address1", new String[] {"s", "'%"+ address1 + "%'"});
+            a1t = true;
         }
         if (!jTextField7.getText().equals("")){
             String city = jTextField7.getText();
             pQueries.add(new String[] {"s","city", "'%"+ city + "%'"});
+            pQsm.put("city", new String[] {"s", "'%"+ city + "%'"});
+            ct = true;
         }
         if (!jComboBox1.getSelectedItem().toString().equals("None")){
             String state = jComboBox1.getSelectedItem().toString();
             pQueries.add(new String[] {"s","state", "'%"+ state + "%'"});
+            pQsm.put("state", new String[] {"s", "'%"+ state + "%'"});
+            st = true;
         }
         if (!jTextField8.getText().equals("")){
             String zipcode = jTextField8.getText();
             pQueries.add(new String[] {"i","zipcode", zipcode});
+            pQsm.put("zipcode", new String[] {"s", zipcode});
+            zt = true;
         }
+        if (!jTextField4.getText().equals("")){
+            String dob = jTextField4.getText();
+            pQueries.add(new String[] {"i", dob});
+            pQsm.put("dob", new String[] {"s", dob});
+            dbt = true;
+        }        
         if (!(!a1t&&!ct&&!st&&!zt)){
             if(!(a1t&&ct&&st&&zt)){
                 JOptionPane.showMessageDialog(new JFrame(), "Address, City, State, and Zip need to be filled out!");
+                
+            }
+            else{
                 
             }
         }
