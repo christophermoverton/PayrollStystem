@@ -3,18 +3,49 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import java.sql.*;
+import javax.swing.*;
 /**
  *
  * @author strangequark
  */
 public class PayrollNameSSNLookupResults extends javax.swing.JPanel {
-
+    JTable tblResults;
+    String[] tableColumnsName = {"empid","deptid","jobid", "typeid", "catid",
+                                 "lastname", "firstname", "minit", "ssn", "dob",
+                                 "gender", "marital", "address1", "address2",
+                                 "city", "state", "zipcode", "country",
+                                 "homephone", "officephone", "cellphone"};
+     /* "empid", 
+                           "INTEGER not NULL", 
+                           "deptid", "INTEGER not NULL", "jobid", "INTEGER not NULL", 
+                           "typeid","INTEGER not NULL", "catid", "INTEGER not NULL", 
+			   "lastname","VARCHAR(255)", "firstname",
+			   "VARCHAR(255)","minit","VARCHAR(1)",
+			   "ssn","INTEGER", "dob","DATE", "gender",
+			   "VARCHAR(1)", "marital","BOOLEAN",
+                           "address1","VARCHAR(255)",
+			   "address2","VARCHAR(255)",
+			   "city","VARCHAR(255)", "state","VARCHAR(2)",
+			   "zipcode","SMALLINT", "country","VARCHAR(255)",
+                           "email","VARCHAR(255)", "webpage","VARCHAR(255)",
+			   "homephone","SMALLINT", "officephone","SMALLINT",
+			   "cellphone","SMALLINT", "regularhours","SMALLINT",
+			   "login","VARCHAR(255)", "password","VARCHAR(255)",
+			   "admin","BOOLEAN", "superadmin","BOOLEAN",
+			   "numlogins","INTEGER", "lastlogindate", "DATE",
+			   "loginip", "VARCHAR(255)", "datesignup","DATE",
+			   "dateupdated","DATE", "active", "BOOLEAN"},
     /**
      * Creates new form PayrollNameSSNLookupResults
      */
-    public PayrollNameSSNLookupResults() {
-        initComponents();
+    public PayrollNameSSNLookupResults(ResultSet rs) {
+        //initComponents();
+        tblResults = new JTable(){
+        public boolean isCellEditable(int roxIndex, int colIndex){
+            return false;
+        }
+    };      
     }
 
     /**
@@ -26,19 +57,43 @@ public class PayrollNameSSNLookupResults extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
