@@ -3,20 +3,47 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import javax.swing.*;
+import java.awt.*; 
+import java.awt.event.*;
 /**
  *
  * @author strangequark
  */
-public class PayrollNameSSNLookupResults extends javax.swing.JPanel {
-
+public class PayrollCardLayout extends javax.swing.JPanel {
+    JPanel cards;
+    final static String BUTTONPANEL = "Card with JButtons";
+    final static String TEXTPANEL = "Card with JTextField";
     /**
-     * Creates new form PayrollNameSSNLookupResults
+     * Creates new form PayrollCardLayout
      */
-    public PayrollNameSSNLookupResults() {
+    public PayrollCardLayout() {
         initComponents();
     }
+    public void addComponentToPane(Container pane) {
+        //Put the JComboBox in a JPanel to get a nicer look.
+        PayrollNameSSNLookuppanel pynameslookup = new PayrollNameSSNLookuppanel(); //use FlowLayout
 
+         
+        //Create the "cards".
+        JPanel pynamesresults = new PayrollNameSSNLookupResults();
+         
+        JPanel card2 = new JPanel();
+        card2.add(new JTextField("TextField", 20));
+         
+        //Create the panel that contains the "cards".
+        cards = new JPanel(new CardLayout());
+        cards.add(pynameslookup, BUTTONPANEL);
+        cards.add(pynamesresults, TEXTPANEL);
+        pynameslookup.addCards(cards);
+        /*
+        cards
+        cards.add(card1, BUTTONPANEL);
+        cards.add(card2, TEXTPANEL);
+         */
+        //pane.add(comboBoxPane, BorderLayout.PAGE_START);
+        pane.add(cards, BorderLayout.CENTER);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

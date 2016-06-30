@@ -14,16 +14,16 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JFrame;
 public class PayrollNameSSNLookup extends javax.swing.JFrame {
-
+    private 
     /**
      * Creates new form PayrollNameSSNLookup
      */
-    public enum States {None, AL, AK, AR, AZ, CA, CO, CT, DE, DC, FL, GA, HI, ID, IL, 
+    public enum States { AL, AK, AR, AZ, CA, CO, CT, DE, DC, FL, GA, HI, ID, IL, 
                         IN, IA, KS, 
                         KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, 
                         NM, NY,
                         NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VT, VA,
-                        WA, WV, WI, WY;}
+                        WA, WV, WI, WY};
     public PayrollNameSSNLookup() {
         initComponents();
         jComboBox1.setModel(new DefaultComboBoxModel(States.values()));
@@ -265,7 +265,7 @@ public class PayrollNameSSNLookup extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArrayList<String[]> pQueries = new ArrayList<String[]>();
         HashMap<String,String[]> pQsm = new HashMap<String,String[]>();
-        String Qstring = "Select * From employee";
+        String Qstring = "Select * From employee WHERE";
         boolean a1t = false;
         boolean ct = false;
         boolean st = false;
@@ -274,58 +274,64 @@ public class PayrollNameSSNLookup extends javax.swing.JFrame {
         if (!jTextField1.getText().equals("")){
             String fname = jTextField1.getText();
             pQueries.add(new String[] {"s","firstname", "'%"+ fname + "%'"});
-            pQsm.put("firstname", new String[] {"s", "'%"+ fname + "%'"});
+            pQsm.put("firstname", new String[] {"s", "'%"+ fname + "%',"});
+            Qstring += " firstname LIKE " +  "'%"+ fname + "%',";
         }
         if (!jTextField2.getText().equals("")){
             String lname = jTextField2.getText();
             pQueries.add(new String[] {"s","lastname", "'%"+ lname + "%'"});
             pQsm.put("lastname", new String[] {"s", "'%"+ lname + "%'"});
+            Qstring += " lastname LIKE " +  "'%"+ lname + "%',";
         }
         if (!jTextField3.getText().equals("")){
             String ssn = jTextField3.getText();
             pQueries.add(new String[] {"i","ssn",ssn});
             pQsm.put("ssn", new String[] {"s", ssn});
+            Qstring += " ssn="+ssn+",";
         }
         if (!jTextField5.getText().equals("")){
             String address1 = jTextField5.getText();
             pQueries.add(new String[] {"s","address1", "'%"+ address1 + "%'"});
-            pQsm.put("address1", new String[] {"s", "'%"+ address1 + "%'"});
+            pQsm.put("address1", new String[] {"s", "'%"+ address1 + "%',"});
             a1t = true;
         }
         if (!jTextField7.getText().equals("")){
             String city = jTextField7.getText();
             pQueries.add(new String[] {"s","city", "'%"+ city + "%'"});
-            pQsm.put("city", new String[] {"s", "'%"+ city + "%'"});
+            pQsm.put("city", new String[] {"s", "'%"+ city + "%',"});
             ct = true;
         }
         if (!jComboBox1.getSelectedItem().toString().equals("None")){
             String state = jComboBox1.getSelectedItem().toString();
             pQueries.add(new String[] {"s","state", "'%"+ state + "%'"});
-            pQsm.put("state", new String[] {"s", "'%"+ state + "%'"});
+            pQsm.put("state", new String[] {"s", "'%"+ state + "%',"});
             st = true;
         }
         if (!jTextField8.getText().equals("")){
             String zipcode = jTextField8.getText();
             pQueries.add(new String[] {"i","zipcode", zipcode});
-            pQsm.put("zipcode", new String[] {"s", zipcode});
+            pQsm.put("zipcode", new String[] {"s", zipcode + ","});
             zt = true;
         }
         if (!jTextField4.getText().equals("")){
             String dob = jTextField4.getText();
             pQueries.add(new String[] {"i", dob});
             pQsm.put("dob", new String[] {"i", dob});
+            Qstring += " dob = "+ dob + ",";
             dbt = true;
         }  
         if (!jTextField9.getText().equals("")){
             String homephone = jTextField9.getText();
             pQueries.add(new String[] {"i", homephone});
-            pQsm.put("dob", new String[] {"i", homephone});
+            pQsm.put("homephone", new String[] {"i", homephone});
+            Qstring += " homephone = " + homephone + ",";
             dbt = true;
         }
         if (!jTextField10.getText().equals("")){
             String email = jTextField10.getText();
             pQueries.add(new String[] {"i", email});
             pQsm.put("email", new String[] {"i", email});
+            Qstring += " email = " + email + ",";
             dbt = true;
         } 
         boolean invalidaddr = false;
@@ -340,11 +346,14 @@ public class PayrollNameSSNLookup extends javax.swing.JFrame {
                 invalidaddr = true;
             }
             else{
-                
+                Qstring += " address1 LIKE " + pQsm.get("address1")[1];
+                Qstring += " city LIKE " + pQsm.get("city")[1];
+                Qstring += " state LIKE " + pQsm.get("state")[1];
+                Qstring += " zipcode = " + pQsm.get("zipcode")[1];
             }
         }
         if (!(invalidaddr || noinput)){
-            
+            Qstring += ";";
         }
         
     }//GEN-LAST:event_jButton1MouseReleased
