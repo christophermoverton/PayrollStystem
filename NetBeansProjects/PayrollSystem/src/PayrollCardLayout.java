@@ -26,16 +26,17 @@ public class PayrollCardLayout extends javax.swing.JPanel {
 
          
         //Create the "cards".
-        JPanel pynamesresults = new PayrollNameSSNLookupResults();
+        PayrollNameSSNLookupResults pynamesresults = new PayrollNameSSNLookupResults();
          
-        JPanel card2 = new JPanel();
-        card2.add(new JTextField("TextField", 20));
+        //JPanel card2 = new JPanel();
+        //card2.add(new JTextField("TextField", 20));
          
         //Create the panel that contains the "cards".
         cards = new JPanel(new CardLayout());
         cards.add(pynameslookup, BUTTONPANEL);
         cards.add(pynamesresults, TEXTPANEL);
         pynameslookup.addCards(cards);
+        pynameslookup.addPResults(pynamesresults);
         /*
         cards
         cards.add(card1, BUTTONPANEL);

@@ -7,17 +7,25 @@ import java.util.*;
 import javax.swing.*;
 import java.awt.*; 
 import java.awt.event.*;
+import payrollsystem.*;
 /**
  *
  * @author strangequark
  */
 public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
-    JPanel Cards;
+    public JPanel Cards;
+    public PayrollNameSSNLookupResults prlookresults;
     final static String BUTTONPANEL = "Card with JButtons";
     final static String TEXTPANEL = "Card with JTextField";
     /**
      * Creates new form PayrollNameSSNLookuppanel
      */
+    public String[] tableColumnsName = {"empid","deptid",
+                                 "lastname", "firstname", "minit", "ssn", "dob",
+                                 "gender", "marital", "address1", "address2",
+                                 "city", "state", "zipcode", "country",
+                                 "homephone", "officephone", "cellphone",
+                                 "regularhours"};
     public enum States { AL, AK, AR, AZ, CA, CO, CT, DE, DC, FL, GA, HI, ID, IL, 
                     IN, IA, KS, 
                     KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, 
@@ -237,7 +245,16 @@ public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         ArrayList<String[]> pQueries = new ArrayList<String[]>();
         HashMap<String,String[]> pQsm = new HashMap<String,String[]>();
-        String Qstring = "Select * From employee WHERE";
+        String Qstring = "Select ";
+        int i = 0;
+        for (String tname : tableColumnsName){
+            Qstring += tname;
+            if (i != tableColumnsName.length -1){
+                Qstring += ", ";
+            }
+            i++;
+        }
+        Qstring += " From employee WHERE";
         boolean a1t = false;
         boolean ct = false;
         boolean st = false;
@@ -327,7 +344,12 @@ public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
         if (!(invalidaddr || noinput)){
             Qstring += ";";
             CardLayout cl = (CardLayout)(Cards.getLayout());
+            GeneralQuery gprq = new GeneralQuery(Qstring);
+            gprq.runQuery();
+            
+            prlookresults.setTable(gprq.getResultSet());
             cl.show(Cards, TEXTPANEL);
+            
         }
 
     }//GEN-LAST:event_jButton1MouseReleased
@@ -338,6 +360,10 @@ public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
     
     public void addCards(JPanel cards){
         Cards = cards;
+    }
+    
+    public void addPResults(PayrollNameSSNLookupResults prlook){
+        prlookresults = prlook;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -14,7 +14,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JFrame;
 public class PayrollNameSSNLookup extends javax.swing.JFrame {
-    private 
+    
     /**
      * Creates new form PayrollNameSSNLookup
      */
