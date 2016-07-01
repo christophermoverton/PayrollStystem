@@ -13,10 +13,10 @@ import java.util.*;
 public class PayrollNameSSNLookupResults extends javax.swing.JPanel {
     JTable tblResults;
     private Object[][] tabledat;
-    String[] tableColumnsName = {"empid","deptid","jobid", "typeid", "catid",
+    public String[] tableColumnsName = {"empid","deptid",
                                  "lastname", "firstname", "minit", "ssn", "dob",
                                  "gender", "marital", "address1", "address2",
-                                 "city", "state", "zipcode", "country",
+                                 "city", "state", "zipcode",
                                  "homephone", "officephone", "cellphone",
                                  "regularhours"};
      /* "empid", 
@@ -52,26 +52,8 @@ public class PayrollNameSSNLookupResults extends javax.swing.JPanel {
         };*/
 
     }
-    public void setTable(ResultSet rs){
-       try{
-          // Loop through the ResultSet and transfer in the Model
-          ResultSetMetaData rsmd = rs.getMetaData();
-          int colNo = rsmd.getColumnCount();
-          rs.last();
-          int rowNo = rs.getRow();
-          rs.beforeFirst();
-          tabledat = new Object[rowNo][colNo];
-          //ArrayList<Object[]> records=new ArrayList<Object[]>();
-          int j = 0;
-          while(rs.next()){
-                //int cols = rs.getMetaData().getColumnCount();
-                Object[] arr = new Object[colNo];
-                for(int i=0; i<colNo; i++){
-                  arr[i] = rs.getObject(i+1);
-                }
-                tabledat[j] = arr;
-                j++;
-          }
+    public void setTable(Object[][] tabledat){
+
           jScrollPane1 = new javax.swing.JScrollPane();
           jTable1 = new javax.swing.JTable();
           //initComponents();
@@ -84,38 +66,19 @@ public class PayrollNameSSNLookupResults extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         
-       }catch(SQLException se){
-      //Handle errors for JDBC
-          se.printStackTrace();
-       }catch(Exception e){
-      //Handle errors for Class.forName
-          e.printStackTrace();
-       }finally{
-          //finally block used to close resources
-          try{
-             if(stmt!=null)
-                stmt.close();
-          }catch(SQLException se2){
-          }// nothing we can do
-          try{
-             if(conn!=null)
-                conn.close();
-          }catch(SQLException se){
-             se.printStackTrace();
-          }//end finally try
-       }//end try
+
     }
 
     /**
@@ -148,16 +111,16 @@ public class PayrollNameSSNLookupResults extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

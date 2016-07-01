@@ -23,7 +23,7 @@ public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
     public String[] tableColumnsName = {"empid","deptid",
                                  "lastname", "firstname", "minit", "ssn", "dob",
                                  "gender", "marital", "address1", "address2",
-                                 "city", "state", "zipcode", "country",
+                                 "city", "state", "zipcode",
                                  "homephone", "officephone", "cellphone",
                                  "regularhours"};
     public enum States { AL, AK, AR, AZ, CA, CO, CT, DE, DC, FL, GA, HI, ID, IL, 
@@ -36,7 +36,12 @@ public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
         initComponents();
         jComboBox1.setModel(new DefaultComboBoxModel(States.values()));
     }
-
+    public String removelast(String str) {
+        if (str != null && str.length() > 0 && str.charAt(str.length()-1)=='x') {
+          str = str.substring(0, str.length()-1);
+        }
+        return str;
+    }  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -254,53 +259,61 @@ public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
             }
             i++;
         }
-        Qstring += " From employee WHERE";
+        Qstring += " FROM Employee WHERE";
         boolean a1t = false;
         boolean ct = false;
         boolean st = false;
         boolean zt = false;
         boolean dbt = false;
+       
         if (!jTextField1.getText().equals("")){
             String fname = jTextField1.getText();
             pQueries.add(new String[] {"s","firstname", "'%"+ fname + "%'"});
             pQsm.put("firstname", new String[] {"s", "'%"+ fname + "%',"});
-            Qstring += " firstname LIKE " +  "'%"+ fname + "%',";
+            Qstring += " firstname LIKE " +  "'%"+ fname + "%'";
+
         }
         if (!jTextField2.getText().equals("")){
             String lname = jTextField2.getText();
             pQueries.add(new String[] {"s","lastname", "'%"+ lname + "%'"});
             pQsm.put("lastname", new String[] {"s", "'%"+ lname + "%'"});
             Qstring += " lastname LIKE " +  "'%"+ lname + "%',";
+
         }
         if (!jTextField3.getText().equals("")){
             String ssn = jTextField3.getText();
             pQueries.add(new String[] {"i","ssn",ssn});
             pQsm.put("ssn", new String[] {"s", ssn});
             Qstring += " ssn="+ssn+",";
+
         }
         if (!jTextField5.getText().equals("")){
             String address1 = jTextField5.getText();
             pQueries.add(new String[] {"s","address1", "'%"+ address1 + "%'"});
             pQsm.put("address1", new String[] {"s", "'%"+ address1 + "%',"});
             a1t = true;
+
         }
         if (!jTextField7.getText().equals("")){
             String city = jTextField7.getText();
             pQueries.add(new String[] {"s","city", "'%"+ city + "%'"});
             pQsm.put("city", new String[] {"s", "'%"+ city + "%',"});
             ct = true;
+
         }
         if (!jComboBox1.getSelectedItem().toString().equals("None")){
             String state = jComboBox1.getSelectedItem().toString();
             pQueries.add(new String[] {"s","state", "'%"+ state + "%'"});
             pQsm.put("state", new String[] {"s", "'%"+ state + "%',"});
             st = true;
+
         }
         if (!jTextField8.getText().equals("")){
             String zipcode = jTextField8.getText();
             pQueries.add(new String[] {"i","zipcode", zipcode});
             pQsm.put("zipcode", new String[] {"s", zipcode + ","});
             zt = true;
+
         }
         if (!jTextField4.getText().equals("")){
             String dob = jTextField4.getText();
@@ -308,6 +321,7 @@ public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
             pQsm.put("dob", new String[] {"i", dob});
             Qstring += " dob = "+ dob + ",";
             dbt = true;
+
         }
         if (!jTextField9.getText().equals("")){
             String homephone = jTextField9.getText();
@@ -315,6 +329,7 @@ public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
             pQsm.put("homephone", new String[] {"i", homephone});
             Qstring += " homephone = " + homephone + ",";
             dbt = true;
+
         }
         if (!jTextField10.getText().equals("")){
             String email = jTextField10.getText();
@@ -322,6 +337,9 @@ public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
             pQsm.put("email", new String[] {"i", email});
             Qstring += " email = " + email + ",";
             dbt = true;
+        }
+        if (Qstring.charAt(Qstring.length()-1)==','){
+            Qstring = removelast(Qstring);
         }
         boolean invalidaddr = false;
         boolean noinput = false;
