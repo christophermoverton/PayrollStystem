@@ -15,8 +15,8 @@ import payrollsystem.*;
 public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
     public JPanel Cards;
     public PayrollNameSSNLookupResults prlookresults;
-    final static String BUTTONPANEL = "Card with JButtons";
-    final static String TEXTPANEL = "Card with JTextField";
+    final static String LOOKUPPANEL = "Lookup Card";
+    final static String RESULTPANEL = "Result Card";
     /**
      * Creates new form PayrollNameSSNLookuppanel
      */
@@ -335,7 +335,7 @@ public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
             String email = jTextField10.getText();
             pQueries.add(new String[] {"i", email});
             pQsm.put("email", new String[] {"i", email});
-            Qstring += " email = " + email + ",";
+            Qstring += " email = '" + email + "'";
             dbt = true;
         }
         if (Qstring.charAt(Qstring.length()-1)==','){
@@ -366,7 +366,7 @@ public class PayrollNameSSNLookuppanel extends javax.swing.JPanel {
             gprq.runQuery();
             
             prlookresults.setTable(gprq.getResultSet());
-            cl.show(Cards, TEXTPANEL);
+            cl.show(Cards, RESULTPANEL);
             
         }
 

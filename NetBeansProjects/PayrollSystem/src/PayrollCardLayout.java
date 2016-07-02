@@ -12,8 +12,8 @@ import java.awt.event.*;
  */
 public class PayrollCardLayout extends javax.swing.JPanel {
     JPanel cards;
-    final static String BUTTONPANEL = "Card with JButtons";
-    final static String TEXTPANEL = "Card with JTextField";
+    final static String LOOKUPPANEL = "Lookup Card";
+    final static String RESULTPANEL = "Result Card";
     /**
      * Creates new form PayrollCardLayout
      */
@@ -33,10 +33,11 @@ public class PayrollCardLayout extends javax.swing.JPanel {
          
         //Create the panel that contains the "cards".
         cards = new JPanel(new CardLayout());
-        cards.add(pynameslookup, BUTTONPANEL);
-        cards.add(pynamesresults, TEXTPANEL);
+        cards.add(pynameslookup, LOOKUPPANEL);
+        cards.add(pynamesresults, RESULTPANEL);
         pynameslookup.addCards(cards);
         pynameslookup.addPResults(pynamesresults);
+        pynamesresults.addCards(cards);
         /*
         cards
         cards.add(card1, BUTTONPANEL);
