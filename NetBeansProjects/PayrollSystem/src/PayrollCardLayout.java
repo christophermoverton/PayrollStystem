@@ -41,6 +41,9 @@ public class PayrollCardLayout extends javax.swing.JPanel {
         pynameslookup.addPResults(pynamesresults);
         pynamesresults.addCards(cards);
         pynamesview.addCards(cards);
+        pynamesresults.addViewPanel(pynamesview);
+        CardLayout cl = (CardLayout)(cards.getLayout());
+        cl.show(cards, LOOKUPPANEL);
         /*
         cards
         cards.add(card1, BUTTONPANEL);

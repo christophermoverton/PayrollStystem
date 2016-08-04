@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//import static PayrollNameSSNLookuppanel.RESULTPANEL;
 import java.awt.CardLayout;
 import java.sql.*;
 import javax.swing.*;
@@ -16,8 +17,10 @@ public class PayrollNameSSNLookupResults extends javax.swing.JPanel {
     JTable tblResults;
     final static String LOOKUPPANEL = "Lookup Card";
     final static String RESULTPANEL = "Result Card";
+    final static String VIEWPANEL = "View Card";
     private Object[][] Tabledat;
     private JPanel Cards;
+    PayrollNameSSNViewPanel Viewpanel;
     public String[] tableColumnsName = {"empid","deptid",
                                  "lastname", "firstname", "minit", "ssn", "dob",
                                  "gender", "marital", "address1", "address2",
@@ -61,6 +64,10 @@ public class PayrollNameSSNLookupResults extends javax.swing.JPanel {
     public void addCards(JPanel cards){
         Cards = cards;
     }
+    
+    public void addViewPanel(PayrollNameSSNViewPanel viewpanel){
+        Viewpanel = viewpanel;
+    }
     /*
               jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 tabledat,tableColumnsName));
@@ -89,9 +96,16 @@ public class PayrollNameSSNLookupResults extends javax.swing.JPanel {
             }
         });
         jButton2.setText("Select Record");
+        /*
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+        */
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
             }
         });
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -166,13 +180,8 @@ public class PayrollNameSSNLookupResults extends javax.swing.JPanel {
 
         jButton2.setText("Select Record");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton2MousePressed(evt);
-            }
-        });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
             }
         });
 
@@ -215,24 +224,31 @@ public class PayrollNameSSNLookupResults extends javax.swing.JPanel {
         cl.show(Cards, LOOKUPPANEL);
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
-        // TODO add your handling code here:
+        System.out.println("Checking value!");
+        
         int rowval = jTable1.getSelectedRow();
+        
+        System.out.println(rowval);
         if (rowval == -1){
             JOptionPane.showMessageDialog(new JFrame(), "Need at least one entry!");
         }
         else{
+            CardLayout cl = (CardLayout)(Cards.getLayout());
             Object empid = Tabledat[rowval][0];
             String QString = "";
             QString += "Select * FROM Employee WHERE empid = ";
-            QString += (String) empid + ";";
+            QString +=  empid.toString() + ";";
+            
             GeneralQuery gq = new GeneralQuery(QString);
+            gq.runQuery();
+            Object[][] gqresults = gq.getResultSet();
+            Viewpanel.setViewData(gqresults[0]);
+            cl.show(Cards, VIEWPANEL);
         }
-    }//GEN-LAST:event_jButton2MousePressed
+        //*/
+    }//GEN-LAST:event_jButton2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
