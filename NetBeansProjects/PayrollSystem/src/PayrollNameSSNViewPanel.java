@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//import static PayrollNameSSNLookupResults.LOOKUPPANEL;
 import java.util.*;
 import java.awt.*;
 import javax.swing.JPanel;
@@ -15,12 +16,15 @@ import javax.swing.JPanel;
  */
 public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
     JPanel Cards;
+    final static String LOOKUPPANEL = "Lookup Card";
+    final static String RESULTPANEL = "Result Card";
+    final static String VIEWPANEL = "View Card";
     /**
      * Creates new form PayrollNameSSNViewPanel
      */
     public PayrollNameSSNViewPanel() {
-        //initComponents();
-        myInitComponents();
+        initComponents();
+        //myInitComponents();
     }
 
     /**
@@ -53,7 +57,6 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
     public void myInitComponents() {
         //jPanel1.setBackground(new java.awt.Color(209, 254, 181, 20));
     
-
         jLabel10 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -124,54 +127,72 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(234, 226, 217));
 
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel10.setText("Gender:");
 
-        jLabel24.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel24.setText("Login:");
 
-        jLabel25.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel25.setText("Password:");
 
-        jLabel26.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel26.setText("Admin:");
 
-        jLabel27.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel27.setText("Login Nums:");
 
-        jLabel28.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel28.setText("SuperAdmin:");
 
-        jLabel29.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel29.setText("Last Login Date:");
 
-        jLabel30.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel30.setText("Loginip:");
 
         jLabel31.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel31.setText("Date Signup:");
 
+        jLabel53.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel53.setText("jLabel53");
 
+        jLabel55.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel55.setText("jLabel55");
 
+        jLabel56.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel56.setText("jLabel56");
 
+        jLabel57.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel57.setText("jLabel57");
 
+        jLabel58.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel58.setText("jLabel58");
 
+        jLabel59.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel59.setText("jLabel59");
 
+        jLabel60.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel60.setText("jLabel60");
 
+        jLabel61.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel61.setText("jLabel61");
 
         jLabel62.setText("jLabel62");
 
         jButton1.setText("Back To Employee Search");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jButton2.setText("Update Employee Information");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(209, 254, 181));
         jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
@@ -179,11 +200,13 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel1.setText("empid:");
 
+        jLabel32.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel32.setText("jLabel32");
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel3.setText("deptid:");
 
+        jLabel33.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel33.setText("jLabel33");
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -195,15 +218,19 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel4.setText("jobid:");
 
+        jLabel34.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel34.setText("jLabel34");
 
+        jLabel35.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel35.setText("jLabel35");
 
+        jLabel36.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel36.setText("jLabel36");
 
         jLabel23.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel23.setText("Regular Hours:");
 
+        jLabel54.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel54.setText("jLabel54");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -259,16 +286,22 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
         jPanel2.setBorder(new javax.swing.border.MatteBorder(null));
         jPanel2.setOpaque(false);
 
+        jLabel38.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel38.setText("jLabel38");
 
+        jLabel39.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel39.setText("jLabel39");
 
+        jLabel41.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel41.setText("jLabel41");
 
+        jLabel40.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel40.setText("jLabel40");
 
+        jLabel42.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel42.setText("jLabel42");
 
+        jLabel43.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel43.setText("jLabel43");
 
         jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -292,8 +325,10 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel17.setText("State:");
 
+        jLabel37.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel37.setText("jLabel37");
 
+        jLabel44.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel44.setText("jLabel44");
 
         jLabel16.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -383,20 +418,28 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(225, 201, 254));
 
+        jLabel45.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel45.setText("jLabel45");
 
+        jLabel46.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel46.setText("jLabel46");
 
+        jLabel47.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel47.setText("jLabel47");
 
+        jLabel48.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel48.setText("jLabel48");
 
+        jLabel49.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel49.setText("jLabel49");
 
+        jLabel50.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel50.setText("jLabel50");
 
+        jLabel51.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel51.setText("jLabel51");
 
+        jLabel52.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel52.setText("jLabel52");
 
         jLabel11.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -433,34 +476,37 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel46)
                         .addGap(18, 18, 18))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel47))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel47))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel22))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel22))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -509,12 +555,12 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 503, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel10)
@@ -544,7 +590,7 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel31))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                                    .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                                     .addComponent(jLabel61, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel62, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(231, 231, 231))
@@ -602,7 +648,7 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -736,56 +782,72 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(234, 226, 217));
-
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel10.setText("Gender:");
 
-        jLabel24.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel24.setText("Login:");
 
-        jLabel25.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel25.setText("Password:");
 
-        jLabel26.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel26.setText("Admin:");
 
-        jLabel27.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel27.setText("Login Nums:");
 
-        jLabel28.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel28.setText("SuperAdmin:");
 
-        jLabel29.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel29.setText("Last Login Date:");
 
-        jLabel30.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel30.setText("Loginip:");
 
         jLabel31.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel31.setText("Date Signup:");
 
+        jLabel53.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel53.setText("jLabel53");
 
+        jLabel55.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel55.setText("jLabel55");
 
+        jLabel56.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel56.setText("jLabel56");
 
+        jLabel57.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel57.setText("jLabel57");
 
+        jLabel58.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel58.setText("jLabel58");
 
+        jLabel59.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel59.setText("jLabel59");
 
+        jLabel60.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel60.setText("jLabel60");
 
+        jLabel61.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel61.setText("jLabel61");
 
         jLabel62.setText("jLabel62");
 
         jButton1.setText("Back To Employee Search");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jButton2.setText("Update Employee Information");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(209, 254, 181));
         jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
@@ -793,11 +855,13 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel1.setText("empid:");
 
+        jLabel32.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel32.setText("jLabel32");
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel3.setText("deptid:");
 
+        jLabel33.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel33.setText("jLabel33");
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -809,15 +873,19 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel4.setText("jobid:");
 
+        jLabel34.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel34.setText("jLabel34");
 
+        jLabel35.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel35.setText("jLabel35");
 
+        jLabel36.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel36.setText("jLabel36");
 
         jLabel23.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel23.setText("Regular Hours:");
 
+        jLabel54.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel54.setText("jLabel54");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -873,16 +941,22 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
         jPanel2.setBorder(new javax.swing.border.MatteBorder(null));
         jPanel2.setOpaque(false);
 
+        jLabel38.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel38.setText("jLabel38");
 
+        jLabel39.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel39.setText("jLabel39");
 
+        jLabel41.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel41.setText("jLabel41");
 
+        jLabel40.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel40.setText("jLabel40");
 
+        jLabel42.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel42.setText("jLabel42");
 
+        jLabel43.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel43.setText("jLabel43");
 
         jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -906,8 +980,10 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel17.setText("State:");
 
+        jLabel37.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel37.setText("jLabel37");
 
+        jLabel44.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel44.setText("jLabel44");
 
         jLabel16.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -997,20 +1073,28 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(225, 201, 254));
 
+        jLabel45.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel45.setText("jLabel45");
 
+        jLabel46.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel46.setText("jLabel46");
 
+        jLabel47.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel47.setText("jLabel47");
 
+        jLabel48.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel48.setText("jLabel48");
 
+        jLabel49.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel49.setText("jLabel49");
 
+        jLabel50.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel50.setText("jLabel50");
 
+        jLabel51.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel51.setText("jLabel51");
 
+        jLabel52.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel52.setText("jLabel52");
 
         jLabel11.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -1047,34 +1131,37 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel46)
                         .addGap(18, 18, 18))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel47))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel47))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel22))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel22))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -1123,12 +1210,12 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 503, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel10)
@@ -1158,7 +1245,7 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel31))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                                    .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                                     .addComponent(jLabel61, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel62, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(231, 231, 231))
@@ -1216,13 +1303,23 @@ public class PayrollNameSSNViewPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout)(Cards.getLayout());
+        cl.show(Cards, LOOKUPPANEL);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
