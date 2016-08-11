@@ -15,6 +15,7 @@ public class PayrollCardLayout extends javax.swing.JPanel {
     final static String LOOKUPPANEL = "Lookup Card";
     final static String RESULTPANEL = "Result Card";
     final static String VIEWPANEL = "View Card";
+    final static String EMPRECUPANEL = "Recordupdate Card";
     /**
      * Creates new form PayrollCardLayout
      */
@@ -29,6 +30,7 @@ public class PayrollCardLayout extends javax.swing.JPanel {
         //Create the "cards".
         PayrollNameSSNLookupResults pynamesresults = new PayrollNameSSNLookupResults();
         PayrollNameSSNViewPanel pynamesview = new PayrollNameSSNViewPanel();
+        PayrollEmpRecUpdate payemprecupdate = new PayrollEmpRecUpdate();
         //JPanel card2 = new JPanel();
         //card2.add(new JTextField("TextField", 20));
          
@@ -37,10 +39,12 @@ public class PayrollCardLayout extends javax.swing.JPanel {
         cards.add(pynamesview, VIEWPANEL);
         cards.add(pynameslookup, LOOKUPPANEL);
         cards.add(pynamesresults, RESULTPANEL);
+        cards.add(payemprecupdate, EMPRECUPANEL);
         pynameslookup.addCards(cards);
         pynameslookup.addPResults(pynamesresults);
         pynamesresults.addCards(cards);
         pynamesview.addCards(cards);
+        payemprecupdate.addCards(cards);
         pynamesresults.addViewPanel(pynamesview);
         CardLayout cl = (CardLayout)(cards.getLayout());
         cl.show(cards, LOOKUPPANEL);

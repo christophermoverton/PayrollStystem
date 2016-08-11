@@ -2,6 +2,7 @@
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import org.jdesktop.swingx.JXDatePicker;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,6 +19,7 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
     final static String LOOKUPPANEL = "Lookup Card";
     final static String RESULTPANEL = "Result Card";
     final static String VIEWPANEL = "View Card";
+    final static String EMPRECUPANEL = "Recordupdate Card";
     private Object[] tabledat;
     /**
      * Creates new form PayrollEmpRecUpdate
@@ -68,6 +70,24 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         //jLabel62.setText(edat[30].toString()); //datesignup
         jLabel5.setVisible(false);
         jLabel3.setVisible(false);
+        jLabel4.setVisible(false);
+        jLabel23.setVisible(false);
+        jLabel27.setVisible(false);
+        jLabel29.setVisible(false);
+        jLabel30.setVisible(false);
+        jLabel31.setVisible(false);
+        jLabel32.setVisible(false);
+        jLabel33.setVisible(false);
+        jLabel34.setVisible(false);
+        jLabel35.setVisible(false);
+        jLabel36.setVisible(false);
+        jLabel37.setVisible(false);
+        jLabel38.setVisible(false);
+        jLabel39.setVisible(false);
+        jLabel40.setVisible(false);
+        jLabel41.setVisible(false);
+        jLabel42.setVisible(false);
+        jLabel43.setVisible(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -383,6 +403,11 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         jLabel22.setText("Cell Phone:");
 
         jTextField9.setText("jTextField9");
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
 
         jTextField10.setText("jTextField10");
 
@@ -397,6 +422,11 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         jTextField15.setText("jTextField15");
 
         jTextField16.setText("jTextField16");
+        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField16ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Undo");
 
@@ -724,7 +754,19 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
             updatestring += "miinit = " + jTextField2.getText() +", ";
         }
         //jTextField2.setText(edat[7].toString()); //miinit
-        jTextField9.setText(edat[8].toString()); //ssn
+        if (!jTextField9.getText().equals(tabledat[8].toString())){
+            boolean t1 = (jTextField9.getText()).length() == 0;
+            boolean t2 = (jTextField9.getText()).length() != 9;
+            if (t1 || t2){
+                jLabel3.setVisible(true);
+                showMessage = true;
+            }
+            else{
+                updatestring += " ssn = " + jTextField9.getText() +", ";
+            }
+        }
+        //jTextField9.setText(edat[8].toString()); //ssn
+        /*
         jTextField16.setText(edat[9].toString()); //dob
         jTextField17.setText(edat[10].toString()); //gender
         jTextField10.setText(edat[11].toString()); //marital
@@ -744,6 +786,7 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         jTextField20.setText(edat[25].toString()); //admin
         jTextField21.setText(edat[26].toString()); //superadmin
         jLabel3.setVisible(false);
+        */
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
@@ -757,6 +800,18 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+        String str = jTextField9.getText()
+        str = str.replaceAll("\\D+","");
+        jTextField9.setText(str);
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+        // TODO add your handling code here:
+        Calendar.getInstance().getTime();
+    }//GEN-LAST:event_jTextField16ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
