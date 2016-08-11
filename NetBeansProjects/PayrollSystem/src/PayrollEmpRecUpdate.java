@@ -29,6 +29,15 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
     public void addCards(JPanel cards){
         Cards = cards;
     }
+    
+    private boolean checkUString(String ustring){
+        if ((ustring.substring(ustring.length() - 1))!=","){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     public void setViewData(Object[] edat){
         tabledat = edat;
         jTextField3.setText(edat[5].toString()); //lastname
@@ -57,6 +66,8 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         //jLabel60.setText(edat[28].toString()); //lastlogindate
         //jLabel61.setText(""); //loginip
         //jLabel62.setText(edat[30].toString()); //datesignup
+        jLabel5.setVisible(false);
+        jLabel3.setVisible(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -688,13 +699,31 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
                 jTextField3.setText(edat[5].toString()); //lastname
         String updatestring = "UPDATE Employee SET";
         int inisize = updatestring.length();
-        if (!jTextField1.getText().equals(tabledat[6].toString())){
-            if ((jTextField1.getText()).length() == 0){
-               JOptionPane.showMessageDialog(new JFrame(), "First Name cannot be blank!");
+        boolean showMessage = false;
+        if (!jTextField3.getText().equals(tabledat[5].toString())){
+            if ((jTextField3.getText()).length() == 0){
+                jLabel5.setVisible(true);
+                showMessage = true;
+            }
+            else{
+                updatestring += " firstname = " + jTextField1.getText() +", ";
             }
         }
-        jTextField1.setText(edat[6].toString()); //firstname
-        jTextField2.setText(edat[7].toString()); //miinit
+        if (!jTextField1.getText().equals(tabledat[6].toString())){
+            if ((jTextField1.getText()).length() == 0){
+                jLabel3.setVisible(true);
+                showMessage = true;
+            }
+            else{
+                updatestring += " firstname = " + jTextField1.getText() +", ";
+            }
+        }
+        //jTextField1.setText(edat[6].toString()); //firstname
+        if (!jTextField2.getText().equals(tabledat[7].toString())){
+
+            updatestring += "miinit = " + jTextField2.getText() +", ";
+        }
+        //jTextField2.setText(edat[7].toString()); //miinit
         jTextField9.setText(edat[8].toString()); //ssn
         jTextField16.setText(edat[9].toString()); //dob
         jTextField17.setText(edat[10].toString()); //gender
@@ -714,6 +743,7 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         jTextField19.setText(edat[24].toString()); //password
         jTextField20.setText(edat[25].toString()); //admin
         jTextField21.setText(edat[26].toString()); //superadmin
+        jLabel3.setVisible(false);
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
