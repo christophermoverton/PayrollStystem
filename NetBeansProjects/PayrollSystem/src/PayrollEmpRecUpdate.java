@@ -1,8 +1,9 @@
 
+import java.util.Calendar;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import org.jdesktop.swingx.JXDatePicker;
+//import org.jdesktop.swingx.JXDatePicker;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,6 +27,7 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
      */
     public PayrollEmpRecUpdate() {
         initComponents();
+        setlabels();
     }
 
     public void addCards(JPanel cards){
@@ -38,6 +40,34 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         }
         else{
             return false;
+        }
+    }
+    private void setlabels(){
+        String filepath = "/home/christopher/PayrollStystem/NetBeansProjects/PayrollSystem/src";
+        filepath += "/error2.png";
+        try{
+            java.awt.image.BufferedImage myPicture = javax.imageio.ImageIO.read(new java.io.File(filepath));
+            javax.swing.ImageIcon iic = new javax.swing.ImageIcon(myPicture);
+            jLabel9.setIcon(iic);
+            jLabel13.setIcon(iic);
+            jLabel14.setIcon(iic);
+            jLabel15.setIcon(iic);
+            jLabel16.setIcon(iic);
+            jLabel31.setIcon(iic);
+            jLabel32.setIcon(iic);
+            jLabel33.setIcon(iic);
+            jLabel34.setIcon(iic);
+            jLabel35.setIcon(iic);
+            jLabel36.setIcon(iic);
+            jLabel37.setIcon(iic);
+            jLabel38.setIcon(iic);
+            jLabel39.setIcon(iic);
+            jLabel40.setIcon(iic);
+            jLabel41.setIcon(iic);
+            jLabel42.setIcon(iic);
+            jLabel43.setIcon(iic);
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
     public void setViewData(Object[] edat){
@@ -182,7 +212,6 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel8.setText("Middle Init:");
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
         jLabel9.setToolTipText("text");
 
         jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -247,20 +276,6 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
                 jButton1MouseClicked(evt);
             }
         });
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -431,22 +446,6 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
 
         jButton2.setText("Undo");
 
-        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -595,16 +594,6 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
 
         jButton5.setLabel("Back to Employee View");
 
-        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
-        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/error2.png"))); // NOI18N
-
         jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel10.setText("Gender:");
 
@@ -721,7 +710,7 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
-                jTextField3.setText(edat[5].toString()); //lastname
+        //        jTextField3.setText(edat[5].toString()); //lastname
         String updatestring = "UPDATE Employee SET";
         int inisize = updatestring.length();
         boolean showMessage = false;
@@ -798,7 +787,7 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
-        String str = jTextField9.getText()
+        String str = jTextField9.getText();
         str = str.replaceAll("\\D+","");
         jTextField9.setText(str);
     }//GEN-LAST:event_jTextField9ActionPerformed
