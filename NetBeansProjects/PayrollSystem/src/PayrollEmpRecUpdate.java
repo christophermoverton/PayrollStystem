@@ -116,8 +116,18 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         //jLabel54.setText(edat[22].toString()); //regular hours
         jTextField18.setText(edat[23].toString()); //login
         jTextField19.setText(edat[24].toString()); //password
-        jTextField20.setText(edat[25].toString()); //admin
-        jTextField21.setText(edat[26].toString()); //superadmin
+        int mval2 = 0;
+        if (edat[25].toString().equals("true")){
+            mval = 1;
+        }
+        jComboBox2.setSelectedIndex(mval);
+        //jTextField20.setText(edat[25].toString()); //admin
+        int mval3 = 0;
+        if (edat[26].toString().equals("true")){
+            mval = 1;
+        }
+        jComboBox3.setSelectedIndex(mval);
+        //jTextField21.setText(edat[26].toString()); //superadmin
         //jLabel59.setText(edat[27].toString()); //numlogins
         //jLabel60.setText(edat[28].toString()); //lastlogindate
         //jLabel61.setText(""); //loginip
@@ -152,6 +162,7 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox2 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -212,8 +223,6 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         jTextField17 = new javax.swing.JTextField();
         jTextField18 = new javax.swing.JTextField();
         jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
-        jTextField21 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -222,6 +231,14 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "false", "true" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(189, 224, 255));
         jPanel2.setBorder(new javax.swing.border.MatteBorder(null));
@@ -424,6 +441,8 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         );
 
         jPanel3.setBackground(new java.awt.Color(225, 201, 254));
+        jPanel3.setFocusable(false);
+        jPanel3.setOpaque(false);
 
         jLabel11.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel11.setText("SSN:");
@@ -616,16 +635,19 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
 
         jTextField19.setText("jTextField19");
 
-        jTextField20.setText("jTextField20");
-
-        jTextField21.setText("jTextField21");
-
         jButton3.setText("Undo");
 
         jButton4.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jButton4.setText("Submit");
 
         jButton5.setLabel("Back to Employee View");
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "false", "true" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -665,12 +687,13 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
                                         .addComponent(jLabel26)
                                         .addComponent(jLabel28))
                                     .addGap(48, 48, 48)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -719,9 +742,9 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(82, 82, 82)
                                 .addComponent(jButton3))
                             .addGroup(layout.createSequentialGroup()
@@ -823,15 +846,37 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
            updatestring += " email = " + jTextField11.getText() +", "; 
         }        
         //jTextField11.setText(edat[17].toString()); //email
-        /*
-        jTextField12.setText(edat[18].toString()); //webpage
-        jTextField13.setText(edat[19].toString()); //homephone
-        jTextField14.setText(edat[20].toString()); //officephone
-        jTextField15.setText(edat[21].toString()); //cellphone
+        if (!jTextField12.getText().equals(tabledat[18].toString())){
+           updatestring += " webpage = " + jTextField12.getText() +", "; 
+        }
+        //jTextField12.setText(edat[18].toString()); //webpage
+        if (!jTextField13.getText().equals(tabledat[19].toString())){
+           updatestring += " homephone = " + jTextField13.getText() +", "; 
+        }
+        //jTextField13.setText(edat[19].toString()); //homephone
+        if (!jTextField14.getText().equals(tabledat[20].toString())){
+           updatestring += " officephone = " + jTextField14.getText() +", "; 
+        }
+        //jTextField14.setText(edat[20].toString()); //officephone
+        if (!jTextField15.getText().equals(tabledat[21].toString())){
+           updatestring += " cellphone = " + jTextField15.getText() +", "; 
+        }
+        //jTextField15.setText(edat[21].toString()); //cellphone
+        
         //jLabel54.setText(edat[22].toString()); //regular hours
-        jTextField18.setText(edat[23].toString()); //login
-        jTextField19.setText(edat[24].toString()); //password
-        jTextField20.setText(edat[25].toString()); //admin
+        if (!jTextField18.getText().equals(tabledat[23].toString())){
+           updatestring += " login = " + jTextField18.getText() +", "; 
+        }
+        //jTextField18.setText(edat[23].toString()); //login
+        if (!jTextField19.getText().equals(tabledat[24].toString())){
+           updatestring += " password = " + jTextField19.getText() +", "; 
+        }
+        //jTextField19.setText(edat[24].toString()); //password
+        if (!jTextField20.getText().equals(tabledat[25].toString())){
+           updatestring += " admin = " + jTextField20.getText() +", "; 
+        }
+        //jTextField20.setText(edat[25].toString()); //admin
+        /*
         jTextField21.setText(edat[26].toString()); //superadmin
         jLabel3.setVisible(false);
         */
@@ -860,6 +905,14 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField22ActionPerformed
 
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
@@ -869,6 +922,8 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -922,8 +977,6 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
