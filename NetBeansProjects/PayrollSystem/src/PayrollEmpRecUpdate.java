@@ -118,15 +118,15 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         jTextField19.setText(edat[24].toString()); //password
         int mval2 = 0;
         if (edat[25].toString().equals("true")){
-            mval = 1;
+            mval2 = 1;
         }
-        jComboBox2.setSelectedIndex(mval);
+        jComboBox2.setSelectedIndex(mval2);
         //jTextField20.setText(edat[25].toString()); //admin
         int mval3 = 0;
         if (edat[26].toString().equals("true")){
-            mval = 1;
+            mval3 = 1;
         }
-        jComboBox3.setSelectedIndex(mval);
+        jComboBox3.setSelectedIndex(mval3);
         //jTextField21.setText(edat[26].toString()); //superadmin
         //jLabel59.setText(edat[27].toString()); //numlogins
         //jLabel60.setText(edat[28].toString()); //lastlogindate
@@ -215,6 +215,11 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         jLabel38 = new javax.swing.JLabel();
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -226,11 +231,6 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "false", "true" }));
@@ -244,31 +244,31 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         jPanel2.setBorder(new javax.swing.border.MatteBorder(null));
         jPanel2.setOpaque(false);
 
-        jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel6.setText("Last Name:");
+        jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel7.setText("First Name:");
+        jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel8.setText("Middle Init:");
+        jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
         jLabel9.setToolTipText("text");
 
-        jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel13.setText("Address1:");
+        jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel14.setText("Address2:");
+        jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel15.setText("City:");
+        jLabel15.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel17.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel17.setText("State:");
+        jLabel17.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel16.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel16.setText("Zip code:");
+        jLabel16.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
         jTextField2.setText("jTextField2");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -444,29 +444,29 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
         jPanel3.setFocusable(false);
         jPanel3.setOpaque(false);
 
-        jLabel11.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel11.setText("SSN:");
+        jLabel11.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel12.setText("DOB:");
+        jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel2.setText("Marital:");
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel18.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel18.setText("Email:");
+        jLabel18.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel19.setText("Web Page:");
+        jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel20.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel20.setText("Home Phone:");
+        jLabel20.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel21.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel21.setText("Office Phone:");
+        jLabel21.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel22.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel22.setText("Cell Phone:");
+        jLabel22.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
         jTextField9.setText("jTextField9");
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -515,41 +515,53 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(203, 203, 203)
-                                        .addComponent(jButton2)))
-                                .addGap(82, 82, 82)
-                                .addComponent(jLabel38)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel36)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel36))
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addGap(203, 203, 203)
+                                                .addComponent(jButton2)))
+                                        .addGap(82, 82, 82)
+                                        .addComponent(jLabel38))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(62, 62, 62)
                                         .addComponent(jLabel37)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel31)
+                                                    .addComponent(jLabel32)
+                                                    .addComponent(jLabel33)
+                                                    .addComponent(jLabel34))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel40, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(96, 96, 96)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel31)
-                                            .addComponent(jLabel32)
-                                            .addComponent(jLabel33)
-                                            .addComponent(jLabel34))))
-                                .addGap(456, 456, 456))))))
+                                            .addComponent(jLabel42, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel41, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(99, 99, 99))))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -558,35 +570,48 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel33)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jLabel11)
-                                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel31))
-                                        .addGap(6, 6, 6)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel32))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(jLabel11)
+                                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(6, 6, 6)
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(jLabel2)
+                                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel31)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel32)))
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel18)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel33))
+                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel19)
+                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel34))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel20)
                         .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel35))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -609,25 +634,25 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
                         .addComponent(jLabel38)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addGap(22, 22, 22))))
         );
 
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel10.setText("Gender:");
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel24.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel24.setText("Login:");
+        jLabel24.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel25.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel25.setText("Password:");
+        jLabel25.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel26.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel26.setText("Admin:");
+        jLabel26.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
-        jLabel28.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel28.setText("SuperAdmin:");
+        jLabel28.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
 
         jTextField17.setText("jTextField17");
 
@@ -637,8 +662,16 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
 
         jButton3.setText("Undo");
 
-        jButton4.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jButton4.setText("Submit");
+        jButton4.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton4MousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jButton5.setLabel("Back to Employee View");
 
@@ -661,40 +694,28 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel43, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel41, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel42, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel39)
-                                .addComponent(jLabel40)))
-                        .addGap(518, 518, 518))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel10)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel10)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton3)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel25)
+                                .addComponent(jLabel26)
+                                .addComponent(jLabel28))
+                            .addGap(48, 48, 48)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton3)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel25)
-                                        .addComponent(jLabel26)
-                                        .addComponent(jLabel28))
-                                    .addGap(48, 48, 48)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -702,31 +723,15 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel42)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel39)
-                                                .addGap(34, 34, 34))
-                                            .addComponent(jLabel40))
-                                        .addGap(34, 34, 34))
-                                    .addComponent(jLabel41)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel43)))
-                        .addContainerGap(216, Short.MAX_VALUE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(5, 5, 5)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -753,7 +758,7 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButton4)
                                     .addComponent(jButton5))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 104, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -768,118 +773,6 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
         //        jTextField3.setText(edat[5].toString()); //lastname
-        String updatestring = "UPDATE Employee SET";
-        int inisize = updatestring.length();
-        boolean showMessage = false;
-        if (!jTextField3.getText().equals(tabledat[5].toString())){
-            if ((jTextField3.getText()).length() == 0){
-                jLabel5.setVisible(true);
-                showMessage = true;
-            }
-            else{
-                updatestring += " lasttname = " + jTextField3.getText() +", ";
-            }
-        }
-        if (!jTextField2.getText().equals(tabledat[6].toString())){
-            if ((jTextField2.getText()).length() == 0){
-                jLabel3.setVisible(true);
-                showMessage = true;
-            }
-            else{
-                updatestring += " minit = " + jTextField2.getText() +", ";
-            }
-        }
-        //jTextField1.setText(edat[6].toString()); //firstname
-        if (!jTextField2.getText().equals(tabledat[7].toString())){
-
-            updatestring += "miinit = " + jTextField2.getText() +", ";
-        }
-        //jTextField2.setText(edat[7].toString()); //miinit
-        if (!jTextField9.getText().equals(tabledat[8].toString())){
-            boolean t1 = (jTextField9.getText()).length() == 0;
-            boolean t2 = (jTextField9.getText()).length() != 9;
-            if (t1 || t2){
-                jLabel3.setVisible(true);
-                showMessage = true;
-            }
-            else{
-                updatestring += " ssn = " + jTextField9.getText() +", ";
-            }
-        }
-        //jTextField9.setText(edat[8].toString()); //ssn
-        LocalDate dobd = datePicker1.getDate();
-        String dobdstr = dobd.toString();
-        if (!dobdstr.equals(tabledat[9].toString())){
-            updatestring += " dob = " + dobdstr +", ";
-        }
-        
-        //jTextField16.setText(edat[9].toString()); //dob
-        if (!jTextField17.getText().equals(tabledat[10].toString())){
-            updatestring += " gender = " + jTextField17.getText() +", ";
-        }
-        
-        //jTextField17.setText(edat[10].toString()); //gender
-
-        if (!jComboBox1.getSelectedItem().equals(tabledat[11].toString())){
-           updatestring += " marital = " + jComboBox1.getSelectedItem() +", ";
-        }
-        //jTextField10.setText(edat[11].toString()); //marital
-        if (!jTextField4.getText().equals(tabledat[12].toString())){
-           updatestring += " address1 = " + jTextField4.getText() +", "; 
-        }
-        //jTextField4.setText(edat[12].toString());  //address1
-        
-        //jTextField7.setText(""); //address2
-        if (!jTextField5.getText().equals(tabledat[14].toString())){
-           updatestring += " city = " + jTextField5.getText() +", "; 
-        }
-        //jTextField5.setText(edat[14].toString()); //city
-        if (!jTextField6.getText().equals(tabledat[15].toString())){
-           updatestring += " state = " + jTextField6.getText() +", "; 
-        }
-        //jTextField6.setText(edat[15].toString()); //state
-        if (!jTextField8.getText().equals(tabledat[16].toString())){
-           updatestring += " zipcode = " + jTextField8.getText() +", "; 
-        }
-        //jTextField8.setText(edat[16].toString()); //zipcode
-        if (!jTextField11.getText().equals(tabledat[17].toString())){
-           updatestring += " email = " + jTextField11.getText() +", "; 
-        }        
-        //jTextField11.setText(edat[17].toString()); //email
-        if (!jTextField12.getText().equals(tabledat[18].toString())){
-           updatestring += " webpage = " + jTextField12.getText() +", "; 
-        }
-        //jTextField12.setText(edat[18].toString()); //webpage
-        if (!jTextField13.getText().equals(tabledat[19].toString())){
-           updatestring += " homephone = " + jTextField13.getText() +", "; 
-        }
-        //jTextField13.setText(edat[19].toString()); //homephone
-        if (!jTextField14.getText().equals(tabledat[20].toString())){
-           updatestring += " officephone = " + jTextField14.getText() +", "; 
-        }
-        //jTextField14.setText(edat[20].toString()); //officephone
-        if (!jTextField15.getText().equals(tabledat[21].toString())){
-           updatestring += " cellphone = " + jTextField15.getText() +", "; 
-        }
-        //jTextField15.setText(edat[21].toString()); //cellphone
-        
-        //jLabel54.setText(edat[22].toString()); //regular hours
-        if (!jTextField18.getText().equals(tabledat[23].toString())){
-           updatestring += " login = " + jTextField18.getText() +", "; 
-        }
-        //jTextField18.setText(edat[23].toString()); //login
-        if (!jTextField19.getText().equals(tabledat[24].toString())){
-           updatestring += " password = " + jTextField19.getText() +", "; 
-        }
-        //jTextField19.setText(edat[24].toString()); //password
-        if (!jTextField20.getText().equals(tabledat[25].toString())){
-           updatestring += " admin = " + jTextField20.getText() +", "; 
-        }
-        //jTextField20.setText(edat[25].toString()); //admin
-        /*
-        jTextField21.setText(edat[26].toString()); //superadmin
-        jLabel3.setVisible(false);
-        */
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
@@ -892,6 +785,7 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
+    
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
@@ -912,6 +806,157 @@ public class PayrollEmpRecUpdate extends javax.swing.JPanel {
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MousePressed
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        String updatestring = "UPDATE Employee SET";
+        int inisize = updatestring.length();
+        boolean showMessage = false;
+        boolean modified = false;
+        if (!jTextField3.getText().equals(tabledat[5].toString())){
+            if ((jTextField3.getText()).length() == 0){
+                jLabel5.setVisible(true);
+                showMessage = true;
+            }
+            else{
+                modified = true;
+                updatestring += " lasttname = " + jTextField3.getText() +", ";
+            }
+        }
+        if (!jTextField2.getText().equals(tabledat[7].toString())){
+            if ((jTextField2.getText()).length() == 0){
+                jLabel3.setVisible(true);
+                showMessage = true;
+            }
+            else{
+                modified = true;
+                updatestring += " minit = " + jTextField2.getText() +", ";
+            }
+        }
+        //jTextField1.setText(edat[6].toString()); //firstname
+        if (!jTextField2.getText().equals(tabledat[7].toString())){
+            modified = true;
+            updatestring += "miinit = " + jTextField2.getText() +", ";
+        }
+        //jTextField2.setText(edat[7].toString()); //miinit
+        String str = jTextField9.getText();
+        str = str.replaceAll("\\D+","");
+        jTextField9.setText(str);
+        if (!jTextField9.getText().equals(tabledat[8].toString())){
+            boolean t1 = (jTextField9.getText()).length() == 0;
+            boolean t2 = (jTextField9.getText()).length() != 9;
+            if (t1 || t2){
+                jLabel3.setVisible(true);
+                showMessage = true;
+            }
+            else{
+                modified = true;
+                updatestring += " ssn = " + jTextField9.getText() +", ";
+            }
+        }
+        //jTextField9.setText(edat[8].toString()); //ssn
+        LocalDate dobd = datePicker1.getDate();
+        String dobdstr = dobd.toString();
+        if (!dobdstr.equals(tabledat[9].toString())){
+            modified = true;
+            updatestring += " dob = " + dobdstr +", ";
+        }
+        
+        //jTextField16.setText(edat[9].toString()); //dob
+        if (!jTextField17.getText().equals(tabledat[10].toString())){
+            modified = true;
+            updatestring += " gender = " + jTextField17.getText() +", ";
+        }
+        
+        //jTextField17.setText(edat[10].toString()); //gender
+
+        if (!jComboBox1.getSelectedItem().equals(tabledat[11].toString())){
+           modified = true;
+           updatestring += " marital = " + jComboBox1.getSelectedItem() +", ";
+        }
+        //jTextField10.setText(edat[11].toString()); //marital
+        if (!jTextField4.getText().equals(tabledat[12].toString())){
+           modified = true; 
+           updatestring += " address1 = " + jTextField4.getText() +", "; 
+        }
+        //jTextField4.setText(edat[12].toString());  //address1
+        
+        //jTextField7.setText(""); //address2
+        if (!jTextField5.getText().equals(tabledat[14].toString())){
+           modified = true; 
+           updatestring += " city = " + jTextField5.getText() +", "; 
+        }
+        //jTextField5.setText(edat[14].toString()); //city
+        if (!jTextField6.getText().equals(tabledat[15].toString())){
+           modified = true; 
+           updatestring += " state = " + jTextField6.getText() +", "; 
+        }
+        //jTextField6.setText(edat[15].toString()); //state
+        if (!jTextField8.getText().equals(tabledat[16].toString())){
+           modified = true; 
+           updatestring += " zipcode = " + jTextField8.getText() +", "; 
+        }
+        //jTextField8.setText(edat[16].toString()); //zipcode
+        if (!jTextField11.getText().equals(tabledat[17].toString())){
+           modified = true; 
+           updatestring += " email = " + jTextField11.getText() +", "; 
+        }        
+        //jTextField11.setText(edat[17].toString()); //email
+        if (!jTextField12.getText().equals(tabledat[18].toString())){
+           modified = true; 
+           updatestring += " webpage = " + jTextField12.getText() +", "; 
+        }
+        //jTextField12.setText(edat[18].toString()); //webpage
+        if (!jTextField13.getText().equals(tabledat[19].toString())){
+           modified = true; 
+           updatestring += " homephone = " + jTextField13.getText() +", "; 
+        }
+        //jTextField13.setText(edat[19].toString()); //homephone
+        if (!jTextField14.getText().equals(tabledat[20].toString())){
+           modified = true; 
+           updatestring += " officephone = " + jTextField14.getText() +", "; 
+        }
+        //jTextField14.setText(edat[20].toString()); //officephone
+        if (!jTextField15.getText().equals(tabledat[21].toString())){
+           modified = true; 
+           updatestring += " cellphone = " + jTextField15.getText() +", "; 
+        }
+        //jTextField15.setText(edat[21].toString()); //cellphone
+        
+        //jLabel54.setText(edat[22].toString()); //regular hours
+        if (!jTextField18.getText().equals(tabledat[23].toString())){
+           modified = true; 
+           updatestring += " login = " + jTextField18.getText() +", "; 
+        }
+        //jTextField18.setText(edat[23].toString()); //login
+        if (!jTextField19.getText().equals(tabledat[24].toString())){
+           modified = true; 
+           updatestring += " password = " + jTextField19.getText() +", "; 
+        }
+        //jTextField19.setText(edat[24].toString()); //password
+        if (!jComboBox2.getSelectedItem().equals(tabledat[25].toString())){
+           modified = true; 
+           updatestring += " admin = " + jComboBox2.getSelectedItem() +", ";
+        }
+        //jTextField20.setText(edat[25].toString()); //admin
+        if (!jComboBox3.getSelectedItem().equals(tabledat[26].toString())){
+           modified = true; 
+           updatestring += " superadmin = " + jComboBox1.getSelectedItem() +", ";
+        }
+        //jTextField21.setText(edat[26].toString()); //superadmin
+        /*
+        jLabel3.setVisible(false);
+        */
+        System.out.println(updatestring);
+        System.out.println(showMessage);
+        if (updatestring.length() != inisize){
+            System.out.println("Data has changed");
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
